@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,6 +36,7 @@
   </script>
 
   <style>
+    /* 드롭다운 메뉴 트랜지션 */
     .nav-dropdown:hover .dropdown-menu {
       display: block;
       opacity: 1;
@@ -47,19 +48,43 @@
       transform: translateY(8px);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    /* B722 스타일 LNB 탭 언더라인 */
+    .lnb-tab {
+      position: relative;
+      color: #6B7280;
+      transition: color 0.2s ease;
+    }
+    .lnb-tab:hover {
+      color: #111827;
+    }
+    .lnb-tab.active {
+      color: #111827;
+      font-weight: 700;
+    }
+    .lnb-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #111827;
+    }
+
     #mobile-menu.open {
       transform: translateX(0);
     }
   </style>
 </head>
-<body class="bg-vcp-navy text-neutral-200 font-sans antialiased selection:bg-vcp-red selection:text-white">
+<body class="bg-[#F8F9FA] text-neutral-800 font-sans antialiased selection:bg-vcp-red selection:text-white flex flex-col min-h-screen">
 
   <!-- =================================================================
-       Header / GNB
+       1. Header / GNB
   ================================================================== -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-vcp-dark/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 group">
+      <a href="index.html" class="flex items-center gap-3">
         <img src="./img/logo1.png" alt="VCP Logo" class="h-10 md:h-11 w-auto object-contain brightness-0 invert" onerror="this.onerror=null; this.src='./img/logo2.png';" />
       </a>
 
@@ -85,12 +110,12 @@
             Solutions
             <svg class="w-3.5 h-3.5 text-vcp-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
-          <div class="dropdown-menu absolute top-full left-0 w-52 bg-vcp-dark/95 backdrop-blur-xl border border-vcp-border rounded-xl p-2 shadow-2xl">
+          <div class="dropdown-menu absolute top-full left-0 w-56 bg-vcp-dark/95 backdrop-blur-xl border border-vcp-border rounded-xl p-2 shadow-2xl">
             <ul class="text-xs font-sans tracking-normal space-y-1 normal-case text-neutral-300">
-              <li><a href="#differentiation" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">시장 차별화 (Transformation)</a></li>
-              <li><a href="#modules" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">6대 서비스 모듈</a></li>
-              <li><a href="#second-gate" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">지정회계감사 & 거래소 대응</a></li>
-              <li><a href="#valuation" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">Valuation 우위 메커니즘</a></li>
+              <li><a href="solutions.html#differentiation" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">시장 차별화 (Transformation)</a></li>
+              <li><a href="solutions.html#modules" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">6대 서비스 모듈</a></li>
+              <li><a href="solutions.html#second-gate" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">지정회계감사 & 거래소 대응</a></li>
+              <li><a href="solutions.html#valuation" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">Valuation 우위 메커니즘</a></li>
             </ul>
           </div>
         </div>
@@ -109,7 +134,7 @@
           </div>
         </div>
 
-        <!-- Contact Button -->
+        <!-- Contact CTA -->
         <a href="track-record.html#contact" class="px-5 py-2.5 rounded-full border border-vcp-red text-white bg-vcp-red/80 hover:bg-vcp-red hover:shadow-lg hover:shadow-vcp-red/30 transition-all font-sans text-xs font-semibold">
           문의하기
         </a>
@@ -135,7 +160,7 @@
         <div>
           <div class="font-oswald text-vcp-red uppercase tracking-wider text-base mb-2">About Us</div>
           <div class="pl-3 space-y-2 text-neutral-400 text-xs">
-            <a href="about.html" class="block hover:text-white mobile-link">VCP 정체성 & 실행 원칙</a>
+            <a href="about.html" class="block hover:text-white">VCP 정체성 & 실행 원칙</a>
           </div>
         </div>
         <div>
@@ -150,7 +175,7 @@
         <div>
           <div class="font-oswald text-vcp-red uppercase tracking-wider text-base mb-2">Track Record</div>
           <div class="pl-3 space-y-2 text-neutral-400 text-xs">
-            <a href="track-record.html" class="block hover:text-white mobile-link">성공 사례 및 문의</a>
+            <a href="track-record.html" class="block hover:text-white">성공 사례 및 문의</a>
           </div>
         </div>
       </div>
@@ -160,413 +185,426 @@
     </div>
   </div>
 
-  <!-- =================================================================
-       Subpage Hero Banner
-  ================================================================== -->
-  <section class="pt-36 pb-20 bg-gradient-to-b from-vcp-dark via-vcp-navy to-vcp-navy border-b border-vcp-border">
-    <div class="max-w-7xl mx-auto px-6">
-      <span class="text-vcp-red font-oswald text-xs font-semibold tracking-widest uppercase mb-3 block">
-        Solutions & Strategy · End-to-End Evidence Chain
-      </span>
-      <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 break-keep">
-        기술평가 문서를 넘어,<br class="hidden md:inline" />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-rose-100 to-vcp-red">상장 가능한 기업 상태로의 전환</span>
-      </h1>
-      <p class="text-sm md:text-base text-neutral-400 font-light max-w-3xl leading-relaxed break-keep">
-        핵심기술 - 객관적 증거 - 고객가치 - 수익모델 - 회계정책·내부통제 - 추정실적 상장 논리를 하나의 일관된 Evidence Chain으로 완성합니다.
-      </p>
-    </div>
-  </section>
 
   <!-- =================================================================
-       Section 1: Market Differentiation (종료점 비교)
+       2. B722 스타일 서브 비주얼 히어로 배너 (Sub-Hero Banner)
   ================================================================== -->
-  <section id="differentiation" class="py-24 bg-vcp-dark border-b border-vcp-border">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-vcp-red font-oswald text-xs font-semibold tracking-widest uppercase">Market Differentiation</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-          기존 자문과 VCP는 "업무의 종료점"이 다릅니다.
-        </h2>
-        <p class="text-sm text-neutral-400 leading-relaxed break-keep">
-          기술평가 중심 자문과, 기술평가 이후 지정회계감사·거래소 심사까지 연결하는 VCP의 발행사측 실행 범위를 비교합니다.
+  <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 bg-neutral-900 overflow-hidden text-white">
+    <div class="absolute inset-0 bg-cover bg-center opacity-40 scale-105" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-oswald font-bold tracking-tight uppercase mb-3">
+          Solutions
+        </h1>
+        <p class="text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-2xl break-keep">
+          기술평가 문서를 넘어, 지정회계감사와 상장예비심사까지 일관된 Evidence Chain으로 완주합니다.
         </p>
       </div>
 
-      <!-- Comparison Workflow -->
+      <!-- 우측 하단 브레드크럼 -->
+      <div class="text-xs font-sans tracking-wide text-neutral-400 flex items-center gap-2">
+        <a href="index.html" class="hover:text-white transition-colors">HOME</a>
+        <span class="text-neutral-600">·</span>
+        <span>Solutions</span>
+        <span class="text-neutral-600">·</span>
+        <span id="current-breadcrumb" class="text-white font-semibold">시장 차별화 (Transformation)</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =================================================================
+       3. B722 스타일 LNB 서브메뉴 탭 바 (화이트 바 & 언더라인)
+  ================================================================== -->
+  <nav class="bg-white border-b border-neutral-200 sticky top-20 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center gap-10 overflow-x-auto text-sm font-medium whitespace-nowrap scrollbar-none py-4">
+        <button class="lnb-tab active" data-target="differentiation">시장 차별화 (Transformation)</button>
+        <button class="lnb-tab" data-target="modules">6대 서비스 모듈</button>
+        <button class="lnb-tab" data-target="second-gate">지정회계감사 & 거래소 대응</button>
+        <button class="lnb-tab" data-target="valuation">Valuation 우위 메커니즘</button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =================================================================
+       4. 단일 뷰 콘텐츠 영역 (Tab Panes)
+  ================================================================== -->
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
+
+    <!-- [Tab 1: 시장 차별화] -->
+    <section id="pane-differentiation" class="tab-pane">
+      <div class="mb-14 text-center md:text-left">
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
+          Market Differentiation
+        </h2>
+        <p class="text-sm md:text-base text-neutral-500 font-light">
+          기존 자문과 VCP는 "업무의 종료점"이 다릅니다.
+        </p>
+      </div>
+
+      <!-- Comparison Cards -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <!-- 기존 일반 자문 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-white/5 flex flex-col justify-between">
+        <div class="bg-white p-8 md:p-10 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
               <span class="text-xs font-oswald uppercase text-neutral-400">Existing Advisory</span>
-              <span class="text-xs text-neutral-500 bg-white/5 px-2.5 py-1 rounded">평가 대응 중심</span>
+              <span class="text-xs text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">문서·평가 대응 중심</span>
             </div>
-            <h3 class="text-xl font-bold text-neutral-300 mb-4">시장에 형성된 일반 자문 모델</h3>
-            <ul class="space-y-3 text-sm text-neutral-400 font-light">
-              <li>• 의뢰받은 기업의 평가 준비에 집중</li>
-              <li>• 기술 중심의 문서 대행 작성 위주</li>
-              <li>• 외부 전문가로서의 일회성 조언과 검토</li>
-              <li>• <strong>기술평가 문서 작성을 주요 성과(종료점)로 설정</strong></li>
-              <li class="text-rose-400">• 자문 종료 후 실제 결함 개선과 감사 대응은 발행사의 몫으로 잔존</li>
+            <h3 class="text-xl font-bold text-neutral-900 mb-4">시장에 형성된 일반 자문 모델</h3>
+            <ul class="space-y-3 text-sm text-neutral-600 font-light">
+              <li class="flex items-start gap-2">• <span>의뢰받은 기업의 평가 준비에 집중</span></li>
+              <li class="flex items-start gap-2">• <span>기술 중심의 문서 대행 작성</span></li>
+              <li class="flex items-start gap-2">• <span>외부 전문가의 조언과 형식적 검토</span></li>
+              <li class="flex items-start gap-2">• <span><strong>종료점:</strong> 기술평가 문서 작성을 주요 성과로 설정</span></li>
+              <li class="flex items-start gap-2 text-rose-600 font-medium">• <span>자문 종료 후 기업의 실제 결함 개선은 발행사의 몫으로 잔존</span></li>
             </ul>
           </div>
-          <div class="mt-8 pt-6 border-t border-white/5">
-            <div class="text-[11px] font-oswald text-neutral-500 mb-2 uppercase">Workflow Step</div>
-            <div class="flex items-center gap-1 text-[11px] text-neutral-400 overflow-x-auto pb-2">
-              <span class="bg-white/5 px-2 py-1 rounded">가능성 진단</span>
+          <div class="mt-8 pt-6 border-t border-neutral-100">
+            <div class="text-[11px] font-oswald text-neutral-400 uppercase mb-2">Workflow Process</div>
+            <div class="flex items-center gap-1.5 text-xs text-neutral-500 overflow-x-auto pb-2">
+              <span class="bg-neutral-100 px-2.5 py-1 rounded">진단</span>
               <span>→</span>
-              <span class="bg-white/5 px-2 py-1 rounded">기술사업계획서</span>
+              <span class="bg-neutral-100 px-2.5 py-1 rounded">문서작성</span>
               <span>→</span>
-              <span class="bg-white/5 px-2 py-1 rounded">모의평가</span>
+              <span class="bg-neutral-100 px-2.5 py-1 rounded">모의평가</span>
               <span>→</span>
-              <span class="bg-white/5 px-2 py-1 rounded">질의 대응</span>
+              <span class="bg-neutral-100 px-2.5 py-1 rounded">질의응답</span>
               <span>→</span>
-              <span class="bg-white/10 px-2 py-1 rounded text-neutral-300 font-semibold">기술평가 종료</span>
+              <span class="bg-neutral-200 px-2.5 py-1 rounded text-neutral-800 font-bold">기술평가 종료</span>
             </div>
           </div>
         </div>
 
         <!-- VCP 통합 실행 모델 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-red/40 flex flex-col justify-between relative shadow-2xl">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-vcp-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="bg-white p-8 md:p-10 rounded-2xl border-2 border-vcp-red/30 shadow-md flex flex-col justify-between relative">
           <div>
-            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-              <span class="text-xs font-oswald text-vcp-red font-semibold uppercase">VCP Transformation</span>
-              <span class="text-xs text-rose-300 bg-vcp-red/20 px-2.5 py-1 rounded font-medium">상태 변화 중심</span>
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
+              <span class="text-xs font-oswald text-vcp-red font-bold uppercase">VCP Transformation</span>
+              <span class="text-xs text-vcp-red bg-vcp-red/10 px-3 py-1 rounded-full font-semibold">기업 상태 변화 중심</span>
             </div>
-            <h3 class="text-xl font-bold text-white mb-4">VCP 발행사측 통합 실행 모델</h3>
-            <ul class="space-y-3 text-sm text-neutral-300 font-light">
-              <li>• 데이터 기반 잠재기업 선제 발굴</li>
-              <li>• 12~24개월 전환 가능성 판별 및 로드맵 수립</li>
-              <li>• 발행사 내부 IPO TFT로 직접 결합 실행</li>
-              <li>• 기술 - 사업 - 재무회계 - 내부통제 일체화 관리</li>
-              <li class="text-rose-300 font-medium">• <strong>기술평가 → 지정회계감사 → 거래소 예심까지 하나의 체계로 연속 완주</strong></li>
+            <h3 class="text-xl font-bold text-neutral-900 mb-4">VCP 발행사측 통합 실행 모델</h3>
+            <ul class="space-y-3 text-sm text-neutral-700 font-light">
+              <li class="flex items-start gap-2">• <span>데이터 기반 잠재기업 선제 발굴</span></li>
+              <li class="flex items-start gap-2">• <span>12~24개월 전환 가능성 판별 및 로드맵 수립</span></li>
+              <li class="flex items-start gap-2">• <span>발행사 내부 IPO TFT로 결합하여 직접 실행</span></li>
+              <li class="flex items-start gap-2">• <span>기술 - 사업 - 재무회계 - 내부통제 일체화 관리</span></li>
+              <li class="flex items-start gap-2 text-vcp-red font-semibold">• <span><strong>종료점:</strong> 기술평가 → 지정회계감사 → 거래소 예심 연속 관리</span></li>
             </ul>
           </div>
-          <div class="mt-8 pt-6 border-t border-white/10">
-            <div class="text-[11px] font-oswald text-vcp-red mb-2 uppercase">End-to-End Workflow</div>
-            <div class="flex items-center gap-1 text-[11px] text-rose-200 overflow-x-auto pb-2 font-medium">
-              <span class="bg-vcp-red/20 px-2 py-1 rounded">발굴</span>
+          <div class="mt-8 pt-6 border-t border-neutral-100">
+            <div class="text-[11px] font-oswald text-vcp-red uppercase mb-2">Continuous Pipeline</div>
+            <div class="flex items-center gap-1.5 text-xs text-vcp-red overflow-x-auto pb-2 font-medium">
+              <span class="bg-vcp-red/10 px-2 py-1 rounded">발굴</span>
               <span>→</span>
-              <span class="bg-vcp-red/20 px-2 py-1 rounded">진단</span>
+              <span class="bg-vcp-red/10 px-2 py-1 rounded">진단</span>
               <span>→</span>
-              <span class="bg-vcp-red/20 px-2 py-1 rounded">개선(Build)</span>
+              <span class="bg-vcp-red/10 px-2 py-1 rounded">개선(Build)</span>
               <span>→</span>
-              <span class="bg-vcp-red/20 px-2 py-1 rounded">검증(Validate)</span>
+              <span class="bg-vcp-red/10 px-2 py-1 rounded">검증(Validate)</span>
               <span>→</span>
-              <span class="bg-vcp-red/20 px-2 py-1 rounded">심사 대응</span>
+              <span class="bg-vcp-red/10 px-2 py-1 rounded">심사대응</span>
               <span>→</span>
-              <span class="bg-vcp-red px-2 py-1 rounded text-white font-bold">가치 실현(Realize)</span>
+              <span class="bg-vcp-red px-2.5 py-1 rounded text-white font-bold">가치실현</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center max-w-4xl mx-auto">
-        <p class="text-xs md:text-sm text-neutral-300 font-light leading-relaxed break-keep">
-          <strong class="text-white font-medium">Key Differentiation:</strong> VCP의 경쟁력은 문서 작성 기법 하나가 아니라, 기술평가와 지정감사·거래소 심사를 하나의 상장 프로젝트로 연결해 "좋은 기술"을 "IPO 가능한 회사"로 전환하는 발굴·판별·실행·통합 역량의 결합입니다.
+      <!-- Key Differentiation Takeaway -->
+      <div class="bg-neutral-100 p-8 rounded-2xl border border-neutral-200">
+        <h4 class="text-sm font-bold text-neutral-900 mb-2">Key Differentiation</h4>
+        <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+          VCP의 경쟁력은 단순한 문서 작성 기법에 있지 않습니다. 기술평가와 지정회계감사, 거래소 심사를 하나의 상장 프로젝트로 완벽히 연결하여 <strong>"좋은 기술을 가진 회사"를 "IPO가 준비된 회사"로 전환시키는 발굴·판별·실행·통합 역량의 결합</strong>입니다.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =================================================================
-       Section 2: 6 Differentiated Service Modules
-  ================================================================== -->
-  <section id="modules" class="py-28 bg-vcp-navy border-b border-vcp-border">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-20">
-        <span class="text-vcp-red font-oswald text-xs font-semibold tracking-widest uppercase">Comprehensive PMO</span>
-        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2 mb-4">
+
+    <!-- [Tab 2: 6대 서비스 모듈] -->
+    <section id="pane-modules" class="tab-pane hidden">
+      <div class="mb-14 text-center md:text-left">
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
           6 Service Modules
         </h2>
-        <p class="text-sm md:text-base text-neutral-400 font-light leading-relaxed break-keep">
-          VCP는 발행사의 내부 실행조직으로서 기술평가·지정감사·거래소 심사를 포함한 6개 서비스 모듈을 하나의 PMO로 통합 운용합니다.
+        <p class="text-sm md:text-base text-neutral-500 font-light">
+          문서가 아니라, IPO 준비도의 본질적인 변화를 제공하는 통합 PMO 모듈
         </p>
       </div>
 
-      <!-- 6 Modules Detailed Grid -->
+      <!-- 6 Modules Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         <!-- 01 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border hover:border-vcp-red/50 transition-all flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-vcp-red font-oswald text-3xl font-bold mb-1">01</div>
             <div class="text-xs font-oswald text-neutral-400 uppercase tracking-wider mb-3">IPO Discovery</div>
-            <h3 class="text-xl font-bold text-white mb-2">잠재기업 발굴</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed break-keep">
-              정부 R&D, 산업 및 고객 데이터를 다각도로 활용하여 기술 잠재기업을 조기 발굴하고 기업별 최적의 상장 트랙을 판단합니다.
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">잠재기업 발굴</h3>
+            <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+              정부 R&D, 산업 및 고객 데이터를 활용하여 잠재 기술기업을 발굴하고 최적의 상장 트랙을 선제 판단합니다.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-500">핵심 산출물</span>
-            <span class="text-neutral-300 font-medium">상장 트랙 적합성 분석</span>
+          <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="text-neutral-400">진단 산출물</span>
+            <span class="font-medium text-neutral-800">최적 트랙 분석 보고서</span>
           </div>
         </div>
 
         <!-- 02 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border hover:border-vcp-red/50 transition-all flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-vcp-red font-oswald text-3xl font-bold mb-1">02</div>
             <div class="text-xs font-oswald text-neutral-400 uppercase tracking-wider mb-3">Integrated Diagnosis</div>
-            <h3 class="text-xl font-bold text-white mb-2">통합 진단</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed break-keep">
-              기술·사업·재무·회계·조직 등 기업 전 부문의 중대결함(Deal Breaker)을 진단하고 12~24개월 내 전환 가능성을 사전 검증합니다.
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">통합 진단</h3>
+            <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+              기술·사업·재무·회계·조직의 중대결함(Deal Breaker)과 12~24개월 전환 가능성을 정밀 진단합니다.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-500">핵심 산출물</span>
-            <span class="text-rose-300 font-medium">IPO Readiness Score & Gate</span>
+          <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="text-neutral-400">진단 산출물</span>
+            <span class="font-medium text-vcp-red">Readiness Score & Gate</span>
           </div>
         </div>
 
         <!-- 03 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border hover:border-vcp-red/50 transition-all flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-vcp-red font-oswald text-3xl font-bold mb-1">03</div>
             <div class="text-xs font-oswald text-neutral-400 uppercase tracking-wider mb-3">Technology Evidence</div>
-            <h3 class="text-xl font-bold text-white mb-2">기술 증거화</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed break-keep">
-              공인시험 결과, 특허 포트폴리오, 공인 인증 및 고객 검증 데이터를 상장 전문평가기관이 검증 가능한 객관적 증거로 체계화합니다.
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">기술 증거화</h3>
+            <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+              공인시험 성적서, 특허 포트폴리오, 인증, 고객사 PoC 및 실사용 검증을 심사 가능한 객관적 증거로 구축합니다.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-500">핵심 산출물</span>
-            <span class="text-neutral-300 font-medium">심사용 Evidence Map</span>
+          <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="text-neutral-400">실행 산출물</span>
+            <span class="font-medium text-neutral-800">심사용 Evidence Map</span>
           </div>
         </div>
 
         <!-- 04 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border hover:border-vcp-red/50 transition-all flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-vcp-red font-oswald text-3xl font-bold mb-1">04</div>
             <div class="text-xs font-oswald text-neutral-400 uppercase tracking-wider mb-3">Business & Valuation</div>
-            <h3 class="text-xl font-bold text-white mb-2">사업가치 연결</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed break-keep">
-              시장 기회, 비즈니스 모델, 고객사 수주잔고, 생산 CAPA 및 마진율을 정밀 추정 실적과 신뢰할 수 있는 기업가치로 직결합니다.
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">사업가치 연결</h3>
+            <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+              시장 기회, 비즈니스 모델, 고객사 수주잔고, 생산 CAPA 및 마진을 3개년 추정실적과 기업가치로 직결합니다.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-500">핵심 산출물</span>
-            <span class="text-neutral-300 font-medium">Value-up KPI & 재무 모델</span>
+          <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="text-neutral-400">실행 산출물</span>
+            <span class="font-medium text-neutral-800">Value-up KPI & 재무모델</span>
           </div>
         </div>
 
         <!-- 05 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border hover:border-vcp-red/50 transition-all flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-vcp-red font-oswald text-3xl font-bold mb-1">05</div>
             <div class="text-xs font-oswald text-neutral-400 uppercase tracking-wider mb-3">Accounting & Audit Readiness</div>
-            <h3 class="text-xl font-bold text-white mb-2">회계감사 준비</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed break-keep">
-              회계정책 정비, IFRS 전환, 결산 체계 및 감사증빙을 선제 정비하고 내부통제 시스템을 구축하여 지정감사 리스크를 사전 차단합니다.
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">회계감사 준비</h3>
+            <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+              회계정책 정비, K-IFRS 전환, 결산 및 증빙 체계를 선제 정비하고 내부통제를 구축하여 지정감사 리스크를 차단합니다.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-500">핵심 산출물</span>
-            <span class="text-rose-300 font-medium">지정감사 대응 Pack</span>
+          <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="text-neutral-400">실행 산출물</span>
+            <span class="font-medium text-vcp-red">지정감사 대응 Pack</span>
           </div>
         </div>
 
         <!-- 06 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border hover:border-vcp-red/50 transition-all flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-vcp-red font-oswald text-3xl font-bold mb-1">06</div>
             <div class="text-xs font-oswald text-neutral-400 uppercase tracking-wider mb-3">Evaluation & Exchange Review</div>
-            <h3 class="text-xl font-bold text-white mb-2">평가·거래소 대응</h3>
-            <p class="text-xs text-neutral-400 leading-relaxed break-keep">
-              전문평가기관 기술평가, 지정감사인, 상장주관사 실사, 거래소 상장예비심사 전 단계의 질의와 보완 요구에 연속 대응합니다.
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">평가·거래소 대응</h3>
+            <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+              기술평가, 지정감사인, 상장주관사 실사, 거래소 상장예비심사의 질의와 보완 요구에 끝까지 연속 대응합니다.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="text-neutral-500">핵심 산출물</span>
-            <span class="text-neutral-300 font-medium">예심 질의·보완 대응 데이터룸</span>
+          <div class="mt-8 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="text-neutral-400">심사 산출물</span>
+            <span class="font-medium text-neutral-800">예심 Q&A 데이터룸</span>
           </div>
         </div>
       </div>
 
       <!-- Evidence Chain Pipeline Diagram -->
-      <div class="p-8 rounded-2xl bg-vcp-dark border border-vcp-border">
-        <h4 class="text-center font-oswald text-sm text-neutral-400 uppercase tracking-widest mb-6">The Integrated Evidence Chain</h4>
+      <div class="bg-white p-8 md:p-10 rounded-2xl border border-neutral-200 shadow-sm">
+        <h4 class="font-oswald text-xs uppercase tracking-widest text-neutral-400 mb-6 text-center">
+          The Integrated Evidence Chain Pipeline
+        </h4>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-center text-xs">
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
             <div class="text-vcp-red font-bold mb-1">기술 잠재력</div>
-            <div class="text-neutral-400 text-[11px]">R&D·특허 분석</div>
+            <div class="text-neutral-500 text-[11px]">R&D·특허 분석</div>
           </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
             <div class="text-vcp-red font-bold mb-1">증거 일관성</div>
-            <div class="text-neutral-400 text-[11px]">공인시험·인증</div>
+            <div class="text-neutral-500 text-[11px]">공인시험·인증</div>
           </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
             <div class="text-vcp-red font-bold mb-1">사업 확장성</div>
-            <div class="text-neutral-400 text-[11px]">수주잔고·고객검증</div>
+            <div class="text-neutral-500 text-[11px]">수주잔고·고객검증</div>
           </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
             <div class="text-vcp-red font-bold mb-1">재무 신뢰성</div>
-            <div class="text-neutral-400 text-[11px]">IFRS·지정감사</div>
+            <div class="text-neutral-500 text-[11px]">IFRS·지정감사</div>
           </div>
-          <div class="p-3 bg-white/5 rounded-xl border border-white/5">
+          <div class="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
             <div class="text-vcp-red font-bold mb-1">조직 실행력</div>
-            <div class="text-neutral-400 text-[11px]">내부통제·TFT</div>
+            <div class="text-neutral-500 text-[11px]">내부통제·TFT</div>
           </div>
-          <div class="p-3 bg-vcp-red/20 rounded-xl border border-vcp-red/40">
-            <div class="text-white font-bold mb-1">IPO 가치 실현</div>
-            <div class="text-rose-200 text-[11px]">거래소 심사 승인</div>
+          <div class="p-4 bg-vcp-red/10 rounded-xl border border-vcp-red/20">
+            <div class="text-vcp-red font-bold mb-1">IPO 가치 실현</div>
+            <div class="text-neutral-700 text-[11px]">거래소 예심 통과</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =================================================================
-       Section 3: Second Gate (지정회계감사 & 내부통제)
-  ================================================================== -->
-  <section id="second-gate" class="py-24 bg-vcp-dark border-b border-vcp-border">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-vcp-red font-oswald text-xs font-semibold tracking-widest uppercase">Second Gate</span>
-        <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
-          기술평가 이후, 지정회계감사가 시작됩니다.
+
+    <!-- [Tab 3: 지정회계감사 & 거래소 대응] -->
+    <section id="pane-second-gate" class="tab-pane hidden">
+      <div class="mb-14 text-center md:text-left">
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
+          Second Gate
         </h2>
-        <p class="text-sm text-neutral-400 font-light leading-relaxed break-keep">
-          기술특례상장은 기술평가만으로 완성되지 않습니다. 기술평가와 지정회계감사가 병행되며, 회계·재무·내부통제 정비와 거래소 심사까지 모든 관문을 유기적으로 돌파해야 합니다.
+        <p class="text-sm md:text-base text-neutral-500 font-light">
+          기술평가 이후, 지정회계감사가 시작됩니다.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <!-- Gate 01 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-border">
+        <div class="bg-white p-8 md:p-10 rounded-2xl border border-neutral-200 shadow-sm">
           <div class="text-xs font-oswald text-neutral-400 uppercase tracking-widest mb-2">Gate 01</div>
-          <h3 class="text-xl font-bold text-white mb-4">기술평가 관문 (Technology Evaluation)</h3>
-          <ul class="space-y-3 text-xs md:text-sm text-neutral-300 font-light">
-            <li class="flex items-start gap-2">• <span>기술 차별성, 기술 완성도 및 전방 시장성 체계화</span></li>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4">기술평가 관문 (Technology Evaluation)</h3>
+          <ul class="space-y-3 text-sm text-neutral-600 font-light">
+            <li class="flex items-start gap-2">• <span>기술 차별성, 완성도 및 시장성 체계화</span></li>
             <li class="flex items-start gap-2">• <span>기술사업계획서 작성 및 전문평가기관 현장 질의 대응</span></li>
-            <li class="flex items-start gap-2">• <span>R&D 실적, 특허권, 공인시험 성적서, 고객 검증 증거화</span></li>
+            <li class="flex items-start gap-2">• <span>R&D 실적, 특허, 공인시험, 고객 검증 데이터 증거화</span></li>
             <li class="flex items-start gap-2">• <span>사업화 가능성과 미래 성장성의 상장 논리 정립</span></li>
           </ul>
         </div>
 
         <!-- Gate 02 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-red/40 shadow-xl">
-          <div class="text-xs font-oswald text-vcp-red font-semibold uppercase tracking-widest mb-2">Gate 02</div>
-          <h3 class="text-xl font-bold text-white mb-4">지정회계감사 & 거래소 관문 (Audit & Review)</h3>
-          <ul class="space-y-3 text-xs md:text-sm text-neutral-300 font-light">
+        <div class="bg-white p-8 md:p-10 rounded-2xl border-2 border-vcp-red/30 shadow-md">
+          <div class="text-xs font-oswald text-vcp-red font-bold uppercase tracking-widest mb-2">Gate 02</div>
+          <h3 class="text-xl font-bold text-neutral-900 mb-4">지정회계감사·거래소 관문 (Audit & Exchange)</h3>
+          <ul class="space-y-3 text-sm text-neutral-700 font-light">
             <li class="flex items-start gap-2">• <span>회계정책·결산체계·감사증빙 정비 및 K-IFRS 기준 전환</span></li>
-            <li class="flex items-start gap-2">• <span>R&D 개발비 자산화, 정부보조금, 매출인식, 재고자산 실사 점검</span></li>
-            <li class="flex items-start gap-2">• <span>내부회계관리제도 구축, 업무분장 및 지정감사인 질의 선제 대응</span></li>
-            <li class="flex items-start gap-2">• <span>감사의견 리스크 해소 및 추정실적-Valuation 거래소 심사 일관성 확보</span></li>
+            <li class="flex items-start gap-2">• <span>R&D 개발비 자산화, 정부보조금, 매출인식, 재고 등 핵심계정 점검</span></li>
+            <li class="flex items-start gap-2">• <span>내부회계관리제도 구축, 업무분장 및 지정감사인 질의 대응</span></li>
+            <li class="flex items-start gap-2">• <span>감사의견 리스크 해소 및 추정실적·Valuation 거래소 심사 일관성 관리</span></li>
           </ul>
         </div>
       </div>
 
-      <!-- Execution Gap Box -->
-      <div class="p-8 rounded-2xl bg-white/5 border border-white/10 max-w-4xl mx-auto">
-        <h4 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-vcp-red"></span>
+      <!-- Issuer-Side Execution Gap -->
+      <div class="bg-neutral-100 p-8 md:p-10 rounded-2xl border border-neutral-200">
+        <h4 class="text-base font-bold text-neutral-900 mb-3 flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-vcp-red"></span>
           발행사 내부 실행 공백(Issuer-Side Execution Gap)을 메웁니다
         </h4>
-        <p class="text-xs md:text-sm text-neutral-400 font-light leading-relaxed break-keep">
-          VCP는 주관 증권사나 회계법인의 고유 역할을 대체하는 조직이 아닙니다. 발행사 내부에서 결산, 증빙 수집, 사내 부서 간 협업 조율, 감사 쟁점 사전 소명을 총괄하여 <strong>외부 전문기관이 물리적으로 수행하기 어려운 내부 실행 Gap</strong>을 완벽히 해결합니다.
+        <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep mb-4">
+          기술의 미래가치를 재무적 숫자로 전환하고, 그 숫자를 회계자료·감사증빙·내부통제로 뒷받침하여 <strong>기술평가 → 지정감사 → 거래소 심사</strong>를 하나의 논리로 완성합니다.
+        </p>
+        <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
+          주관 증권사와 회계법인을 대체하는 것이 아니라, 발행사 내부에서 결산, 감사증빙, 부서 간 협업, 감사 쟁점 대응을 총괄하여 외부 전문기관이 직접 맡기 어려운 현장 내부 실행 공백을 완벽히 해결합니다.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =================================================================
-       Section 4: Valuation Advantage (가치평가 우위)
-  ================================================================== -->
-  <section id="valuation" class="py-28 bg-vcp-navy border-b border-vcp-border">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-vcp-red font-oswald text-xs font-semibold tracking-widest uppercase">Valuation Advantage</span>
-        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2 mb-4">
-          기술특례상장은 미래 현금흐름을 반영합니다.
+
+    <!-- [Tab 4: Valuation 우위 메커니즘] -->
+    <section id="pane-valuation" class="tab-pane hidden">
+      <div class="mb-14 text-center md:text-left">
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
+          Valuation Advantage
         </h2>
-        <p class="text-sm md:text-base text-neutral-400 font-light leading-relaxed break-keep">
-          실현된 과거 실적에 머물지 않고, 검증 가능한 미래 3개년 성장 시나리오를 공모 시점의 기업가치에 반영할 수 있는 자본효율성 메커니즘을 제공합니다.
+        <p class="text-sm md:text-base text-neutral-500 font-light">
+          기술특례상장은 미래 현금흐름을 반영합니다.
         </p>
       </div>
 
-      <!-- Scenario Comparison Table/Cards -->
+      <!-- Scenarios Comparison -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        <!-- 일반상장 시나리오 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-white/10">
-          <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-6">
-            <span class="text-xs font-oswald text-neutral-400 uppercase">General Track</span>
-            <span class="text-xs text-neutral-500 bg-white/5 px-2.5 py-1 rounded">과거 실적 기반</span>
+        <!-- 일반상장 예시 -->
+        <div class="bg-white p-8 md:p-10 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
+              <span class="text-xs font-oswald uppercase text-neutral-400">General Track</span>
+              <span class="text-xs text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">과거 실적 기반</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">일반상장 시나리오</h3>
+            <div class="text-3xl font-oswald font-bold text-neutral-800 mb-4">≈ 1,000억원 <span class="text-xs font-sans text-neutral-500 font-normal">시가총액</span></div>
+            <ul class="space-y-2 text-xs text-neutral-600 mb-6 font-light">
+              <li>• 과거 실적(매출 500억, 당기순이익 100억) 기반 산정</li>
+              <li>• PER 10배 적용 (과거 실적이 주된 신뢰 근거)</li>
+              <li>• 동일 200억원 조달 시 <strong>지분 희석 약 17%</strong></li>
+            </ul>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">일반상장 시나리오</h3>
-          <div class="text-3xl font-oswald font-bold text-neutral-300 mb-4">≈ 1,000억원 <span class="text-xs font-sans text-neutral-500 font-normal">시가총액</span></div>
-          <ul class="space-y-2 text-xs text-neutral-400 mb-6">
-            <li>• 과거 실적(매출 500억, 당기순이익 100억) 기반</li>
-            <li>• PER 10배 적용 (과거 수치에만 의존)</li>
-            <li>• 동일 200억원 자금 조달 시 <strong>지분 희석 약 17%</strong></li>
-          </ul>
-          <div class="p-3 bg-white/5 rounded-xl text-center text-xs text-neutral-400">
-            동일 지분 희석(17%) 시 조달 가능 자금: <strong class="text-white">약 200억원</strong>
+          <div class="p-3 bg-neutral-50 rounded-xl text-center text-xs text-neutral-600 border border-neutral-100">
+            동일 17% 희석 한도 시 조달 가능 자금: <strong class="text-neutral-900">약 200억원</strong>
           </div>
         </div>
 
-        <!-- 기술특례상장 시나리오 -->
-        <div class="p-8 rounded-2xl bg-vcp-card border border-vcp-red/40 shadow-2xl relative">
-          <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-6">
-            <span class="text-xs font-oswald text-vcp-red font-semibold uppercase">Technology Track</span>
-            <span class="text-xs text-rose-300 bg-vcp-red/20 px-2.5 py-1 rounded font-medium">3.6x 자본효율</span>
+        <!-- 기술특례상장 예시 -->
+        <div class="bg-white p-8 md:p-10 rounded-2xl border-2 border-vcp-red/30 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
+              <span class="text-xs font-oswald text-vcp-red font-bold uppercase">Technology Track</span>
+              <span class="text-xs text-vcp-red bg-vcp-red/10 px-3 py-1 rounded-full font-semibold">3.6x 자본효율</span>
+            </div>
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">기술특례상장 시나리오</h3>
+            <div class="text-3xl font-oswald font-bold text-vcp-red mb-4">≈ 3,600억원 <span class="text-xs font-sans text-neutral-500 font-normal">시가총액</span></div>
+            <ul class="space-y-2 text-xs text-neutral-700 mb-6 font-light">
+              <li>• 3개년 추정 실적(2030년 추정 매출 2,000억, 순이익 400억) 반영</li>
+              <li>• PER 10배 및 공모 할인율(약 10%) 적용</li>
+              <li>• 동일 200억원 조달 시 <strong>지분 희석 약 5% (1/3 수준 완화)</strong></li>
+            </ul>
           </div>
-          <h3 class="text-lg font-bold text-white mb-2">기술특례상장 시나리오</h3>
-          <div class="text-3xl font-oswald font-bold text-rose-100 mb-4">≈ 3,600억원 <span class="text-xs font-sans text-rose-300 font-normal">시가총액</span></div>
-          <ul class="space-y-2 text-xs text-neutral-300 mb-6 font-light">
-            <li>• 3개년 미래 추정실적(2030년 추정 매출 2,000억, 순익 400억) 반영</li>
-            <li>• PER 10배 및 할인율(약 10%) 적용</li>
-            <li>• 동일 200억원 조달 시 <strong>지분 희석 약 5% (1/3 수준 완화)</strong></li>
-          </ul>
-          <div class="p-3 bg-vcp-red/20 border border-vcp-red/30 rounded-xl text-center text-xs text-white font-medium">
-            동일 지분 희석(17%) 시 조달 가능 자금: <strong class="text-rose-200 text-sm">약 720억원 (3.6배)</strong>
+          <div class="p-3 bg-vcp-red/10 rounded-xl text-center text-xs text-vcp-red border border-vcp-red/20 font-medium">
+            동일 17% 희석 한도 시 조달 가능 자금: <strong class="text-sm">약 720억원 (3.6배)</strong>
           </div>
         </div>
       </div>
 
-      <!-- Role of VCP in Valuation -->
-      <div class="p-8 rounded-2xl bg-gradient-to-r from-vcp-card via-vcp-dark to-vcp-card border border-vcp-border text-center max-w-4xl mx-auto">
-        <h4 class="text-base md:text-lg font-bold text-white mb-3">
+      <!-- VCP Role Statement -->
+      <div class="bg-neutral-100 p-8 md:p-10 rounded-2xl border border-neutral-200">
+        <h4 class="text-base font-bold text-neutral-900 mb-3">
           VCP의 역할: "미래를 평가받는 것"보다 "미래를 믿게 만드는 것"
         </h4>
-        <p class="text-xs md:text-sm text-neutral-400 font-light leading-relaxed break-keep">
-          높은 기업가치는 기술특례 트랙이 자동으로 보장하지 않습니다. 기술평가 결과, 고객 검증, 수주잔고, CAPA 마진, IFRS 회계정책 및 감사증빙의 일관성을 하나의 <strong>Evidence Chain</strong>으로 완성할 때 비로소 거래소와 투자자가 미래를 신뢰하게 됩니다. VCP의 12~24개월 Value-up PMO는 바로 이 신뢰성을 구축하는 현장 실행 과정입니다.
+        <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep mb-3">
+          높은 기업가치는 기술특례 트랙이 자동으로 보장하지 않습니다. 기술평가 결과, 고객검증·수주잔고, 정부 R&D 성과, CAPA 마진, IFRS 회계정책·지정감사, 추정실적의 일관성을 하나의 <strong>Evidence Chain</strong>으로 완성해야 합니다.
+        </p>
+        <p class="text-xs text-neutral-500 font-light">
+          ※ 위 수치는 이해를 돕기 위한 예시이며, 실제 공모가와 기업가치는 산업별 멀티플, 성장률, 주관사 Valuation 방법론, 할인율 등에 따라 달라질 수 있습니다.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
+
 
   <!-- =================================================================
-       Bottom CTA
+       5. Footer
   ================================================================== -->
-  <section class="py-20 bg-gradient-to-r from-vcp-card to-vcp-dark text-white text-center border-t border-vcp-border">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">성공적인 상장 완주, 실적으로 검증되었습니다</h2>
-      <p class="text-neutral-400 text-sm mb-8">VCP 핵심 인력이 이끌어낸 560억 원 규모의 실제 공모 상장 케이스를 확인하십시오.</p>
-      <div class="flex justify-center gap-4 text-xs font-semibold">
-        <a href="track-record.html" class="px-8 py-3.5 rounded-full bg-vcp-red hover:bg-vcp-darkred text-white transition-all shadow-lg shadow-vcp-red/30">
-          IPO 성공 사례 보기
-        </a>
-        <a href="track-record.html#contact" class="px-8 py-3.5 rounded-full border border-white/20 hover:bg-white/10 text-white transition-all">
-          상담 문의하기
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =================================================================
-       Footer
-  ================================================================== -->
-  <footer class="bg-black text-neutral-500 text-xs py-14 border-t border-white/5">
+  <footer class="bg-black text-neutral-500 text-xs py-14 border-t border-white/5 mt-auto">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 border-b border-white/10 gap-6">
         <img src="./img/logo1.png" alt="VCP Logo" class="h-8 w-auto brightness-0 invert opacity-70" onerror="this.onerror=null; this.src='./img/logo3.png';" />
         <div class="text-neutral-400 text-xs flex gap-6">
           <a href="about.html" class="hover:text-white">About Us</a>
           <span>·</span>
-          <a href="solutions.html" class="hover:text-white text-white font-medium">Solutions</a>
+          <a href="solutions.html" class="text-white font-medium">Solutions</a>
           <span>·</span>
           <a href="track-record.html" class="hover:text-white">Track Record</a>
         </div>
@@ -584,8 +622,71 @@
     </div>
   </footer>
 
-  <!-- Script: Mobile Drawer -->
+
+  <!-- =================================================================
+       6. LNB 탭 스위칭 & URL 해시 동기화 로직
+  ================================================================== -->
   <script>
+    const tabs = document.querySelectorAll('.lnb-tab');
+    const panes = document.querySelectorAll('.tab-pane');
+    const breadcrumb = document.getElementById('current-breadcrumb');
+
+    const tabNames = {
+      'differentiation': '시장 차별화 (Transformation)',
+      'modules': '6대 서비스 모듈',
+      'second-gate': '지정회계감사 & 거래소 대응',
+      'valuation': 'Valuation 우위 메커니즘'
+    };
+
+    function activateTab(tabId) {
+      if (!tabNames[tabId]) tabId = 'differentiation';
+
+      // 1. LNB 버튼 활성화
+      tabs.forEach(tab => {
+        if (tab.getAttribute('data-target') === tabId) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      // 2. 단일 패널 전환
+      panes.forEach(pane => {
+        if (pane.id === `pane-${tabId}`) {
+          pane.classList.remove('hidden');
+        } else {
+          pane.classList.add('hidden');
+        }
+      });
+
+      // 3. 브레드크럼 갱신
+      if (breadcrumb) {
+        breadcrumb.textContent = tabNames[tabId];
+      }
+    }
+
+    // 탭 클릭 이벤트
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-target');
+        history.pushState(null, null, `#${target}`);
+        activateTab(target);
+      });
+    });
+
+    // 뒤로가기/앞으로가기 처리
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '');
+      activateTab(hash);
+    });
+
+    // 초기 진입 해시 감지
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      activateTab(hash);
+    });
+
+    // 모바일 드로어 메뉴
     const toggleBtn = document.getElementById('mobile-toggle');
     const closeBtn = document.getElementById('mobile-close');
     const drawer = document.getElementById('mobile-menu');
@@ -594,7 +695,11 @@
     toggleBtn?.addEventListener('click', () => drawer.classList.add('open'));
     closeBtn?.addEventListener('click', () => drawer.classList.remove('open'));
     mobileLinks.forEach(link => {
-      link.addEventListener('click', () => drawer.classList.remove('open'));
+      link.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        const hash = link.getAttribute('href').replace('#', '');
+        activateTab(hash);
+      });
     });
   </script>
 </body>
