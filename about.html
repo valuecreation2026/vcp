@@ -4,260 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | VCP (Value Creation Partners)</title>
-  <meta name="description" content="기술기업을 상장 가능한 기업으로 전환하는 발행사 중심 실행회사, VCP의 정체성과 6대 원칙, 전문 인력을 소개합니다." />
-
-  <!-- Typography: Pretendard & Oswald -->
+  <meta name="description" content="기술기업을 상장 가능한 기업으로 전환하는 발행사 중심 실행회사, VCP의 정체성과 핵심 실행 라인업을 소개합니다." />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" />
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            vcp: {
-              red: '#9E1C2E',
-              darkred: '#7A1422',
-              navy: '#0B111E',
-              dark: '#060A12',
-              card: '#131B2E',
-              border: 'rgba(255, 255, 255, 0.08)'
-            }
-          },
-          fontFamily: {
-            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            oswald: ['Oswald', 'sans-serif']
-          }
-        }
-      }
+      theme: { extend: { colors: { vcp: { red: '#9E1C2E', darkred: '#7A1422', navy: '#0B111E', dark: '#060A12', card: '#131B2E', border: 'rgba(255, 255, 255, 0.08)' } }, fontFamily: { sans: ['Pretendard', 'sans-serif'], oswald: ['Oswald', 'sans-serif'] } } }
     }
   </script>
-
   <style>
-    /* 드롭다운 메뉴 트랜지션 */
-    .nav-dropdown:hover .dropdown-menu {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .dropdown-menu {
-      display: none;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* B722 스타일 LNB 탭 언더라인 */
-    .lnb-tab {
-      position: relative;
-      color: #6B7280;
-      transition: color 0.2s ease;
-    }
-    .lnb-tab:hover {
-      color: #111827;
-    }
-    .lnb-tab.active {
-      color: #111827;
-      font-weight: 700;
-    }
-    .lnb-tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: #111827;
-    }
-
-    #mobile-menu.open {
-      transform: translateX(0);
-    }
+    .nav-dropdown:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
+    .dropdown-menu { display: none; opacity: 0; transform: translateY(8px); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    .lnb-tab { position: relative; color: #6B7280; transition: color 0.2s ease; text-transform: uppercase; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+    .lnb-tab:hover { color: #111827; }
+    .lnb-tab.active { color: #111827; font-weight: 700; }
+    .lnb-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background-color: #111827; }
+    #mobile-menu.open { transform: translateX(0); }
   </style>
 </head>
 <body class="bg-[#F8F9FA] text-neutral-800 font-sans antialiased selection:bg-vcp-red selection:text-white flex flex-col min-h-screen">
 
-  <!-- =================================================================
-       1. Header / GNB (다크 반투명 고정 네비게이션)
-  ================================================================== -->
+  <!-- Header GNB 생략 (위의 1번 공통코드가 들어가는 자리. 아래는 편의상 간략화) -->
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-vcp-dark/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="./img/logo1.png" alt="VCP Logo" class="h-10 md:h-11 w-auto object-contain brightness-0 invert" onerror="this.onerror=null; this.src='./img/logo2.png';" />
-      </a>
-
+      <a href="index.html" class="flex items-center gap-3 group"><img src="./img/logo1.png" alt="VCP Logo" class="h-10 md:h-11 w-auto brightness-0 invert" onerror="this.onerror=null; this.src='./img/logo2.png';" /></a>
       <nav class="hidden lg:flex items-center gap-8 font-oswald text-sm tracking-wider uppercase">
-        <!-- About Us (Active) -->
         <div class="relative py-7 nav-dropdown">
-          <a href="about.html" class="text-vcp-red transition-colors flex items-center gap-1 font-semibold">
-            About Us
-            <svg class="w-3.5 h-3.5 text-vcp-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </a>
-          <div class="dropdown-menu absolute top-full left-0 w-48 bg-vcp-dark/95 backdrop-blur-xl border border-vcp-border rounded-xl p-2 shadow-2xl">
-            <ul class="text-xs font-sans tracking-normal space-y-1 normal-case text-neutral-300">
-              <li><a href="about.html#mission" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">존재 이유 & 포지셔닝</a></li>
-              <li><a href="about.html#principles" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">VCP 6대 원칙</a></li>
-              <li><a href="about.html#team" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">핵심 실행 라인업</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Solutions -->
-        <div class="relative py-7 nav-dropdown">
-          <a href="solutions.html" class="text-neutral-300 hover:text-white transition-colors flex items-center gap-1">
-            Solutions
-            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </a>
+          <a href="about.html" class="text-vcp-red font-semibold flex items-center gap-1">About Us <svg class="w-3 h-3 text-vcp-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></a>
           <div class="dropdown-menu absolute top-full left-0 w-52 bg-vcp-dark/95 backdrop-blur-xl border border-vcp-border rounded-xl p-2 shadow-2xl">
-            <ul class="text-xs font-sans tracking-normal space-y-1 normal-case text-neutral-300">
-              <li><a href="solutions.html#differentiation" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">시장 차별화 (Transformation)</a></li>
-              <li><a href="solutions.html#modules" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">6대 서비스 모듈</a></li>
-              <li><a href="solutions.html#second-gate" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">지정회계감사 & 거래소 대응</a></li>
-              <li><a href="solutions.html#valuation" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">Valuation 우위 메커니즘</a></li>
+            <ul class="text-xs font-sans space-y-1 text-neutral-300">
+              <li><a href="about.html#reason" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">REASON TO EXIST</a></li>
+              <li><a href="about.html#identity" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">CORPORATE IDENTITY</a></li>
+              <li><a href="about.html#team" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white">EXECUTION TEAM</a></li>
             </ul>
           </div>
         </div>
-
-        <!-- Track Record & Contact -->
-        <div class="relative py-7 nav-dropdown">
-          <a href="track-record.html" class="text-neutral-300 hover:text-white transition-colors flex items-center gap-1">
-            Track Record
-            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </a>
-          <div class="dropdown-menu absolute top-full left-0 w-48 bg-vcp-dark/95 backdrop-blur-xl border border-vcp-border rounded-xl p-2 shadow-2xl">
-            <ul class="text-xs font-sans tracking-normal space-y-1 normal-case text-neutral-300">
-              <li><a href="track-record.html#cases" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">IPO 성공 사례</a></li>
-              <li><a href="track-record.html#contact" class="block px-3 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-colors">오시는 길 및 문의</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Contact CTA -->
-        <a href="track-record.html#contact" class="px-5 py-2.5 rounded-full border border-vcp-red text-white bg-vcp-red/80 hover:bg-vcp-red hover:shadow-lg hover:shadow-vcp-red/30 transition-all font-sans text-xs font-semibold">
-          문의하기
-        </a>
+        <div class="relative py-7 nav-dropdown"><a href="solutions.html" class="text-neutral-300 hover:text-white flex items-center gap-1">Solutions <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></a></div>
+        <div class="relative py-7 nav-dropdown"><a href="track-record.html" class="text-neutral-300 hover:text-white flex items-center gap-1">Track Record <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></a></div>
+        <a href="contact.html" class="px-5 py-2.5 rounded-full border border-vcp-red text-white bg-vcp-red/80 hover:bg-vcp-red text-xs font-semibold">CONTACT US</a>
       </nav>
-
-      <!-- Mobile Hamburger -->
-      <button id="mobile-toggle" aria-label="메뉴 열기" class="lg:hidden text-white p-2 focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
+      <button id="mobile-toggle" class="lg:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
     </div>
   </header>
-
-  <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-80 bg-vcp-dark z-50 transform translate-x-full transition-transform duration-300 border-l border-vcp-border p-6 flex flex-col justify-between overflow-y-auto">
-    <div>
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-80 bg-vcp-dark z-50 transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between">
       <div class="flex justify-between items-center pb-6 border-b border-vcp-border">
-        <img src="./img/logo1.png" alt="VCP Logo" class="h-8 w-auto brightness-0 invert" onerror="this.onerror=null; this.src='./img/logo2.png';" />
-        <button id="mobile-close" class="text-white p-1">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
+          <img src="./img/logo1.png" alt="VCP Logo" class="h-8 w-auto brightness-0 invert" onerror="this.onerror=null; this.src='./img/logo2.png';" />
+          <button id="mobile-close" class="text-white p-1"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
       </div>
       <div class="py-6 space-y-6 text-sm">
-        <div>
-          <div class="font-oswald text-vcp-red uppercase tracking-wider text-base mb-2">About Us</div>
-          <div class="pl-3 space-y-2 text-neutral-400 text-xs">
-            <a href="#mission" class="block hover:text-white mobile-link">존재 이유 & 포지셔닝</a>
-            <a href="#principles" class="block hover:text-white mobile-link">VCP 6대 원칙</a>
-            <a href="#team" class="block hover:text-white mobile-link">핵심 실행 라인업</a>
-          </div>
-        </div>
-        <div>
-          <div class="font-oswald text-vcp-red uppercase tracking-wider text-base mb-2">Solutions</div>
-          <div class="pl-3 space-y-2 text-neutral-400 text-xs">
-            <a href="solutions.html" class="block hover:text-white">6대 서비스 모듈 & 전략</a>
-          </div>
-        </div>
-        <div>
-          <div class="font-oswald text-vcp-red uppercase tracking-wider text-base mb-2">Track Record</div>
-          <div class="pl-3 space-y-2 text-neutral-400 text-xs">
-            <a href="track-record.html" class="block hover:text-white">성공 사례 및 문의</a>
-          </div>
-        </div>
+          <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">About Us</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="#reason" class="block hover:text-white mobile-link">REASON TO EXIST</a><a href="#identity" class="block hover:text-white mobile-link">CORPORATE IDENTITY</a><a href="#team" class="block hover:text-white mobile-link">EXECUTION TEAM</a></div></div>
+          <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Solutions</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="solutions.html" class="block hover:text-white">6대 서비스 모듈 & 전략</a></div></div>
+          <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Track Record</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="track-record.html" class="block hover:text-white">상장 성공 사례</a></div></div>
+          <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Contact</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="contact.html" class="block hover:text-white">CONTACT US</a></div></div>
       </div>
-    </div>
-    <div class="pt-6 border-t border-vcp-border text-[11px] text-neutral-500">
-      © 2026 Value Creation Partners.
-    </div>
   </div>
 
-
-  <!-- =================================================================
-       2. B722 스타일 서브 비주얼 히어로 배너 (Sub-Hero Banner)
-  ================================================================== -->
+  <!-- Sub-Hero Banner -->
   <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 bg-neutral-900 overflow-hidden text-white">
-    <!-- 배경 이미지 및 오버레이 -->
     <div class="absolute inset-0 bg-cover bg-center opacity-40 scale-105" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
     <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div>
-        <h1 class="text-4xl md:text-6xl font-oswald font-bold tracking-tight uppercase mb-3">
-          About Us
-        </h1>
+        <h1 class="text-4xl md:text-6xl font-oswald font-bold tracking-tight uppercase mb-3">About Us</h1>
         <p class="text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-2xl break-keep">
           기술기업의 본질적 가치에 주목하고, 현장 밀착 실행으로 IPO의 신뢰를 완성합니다.
         </p>
       </div>
-
-      <!-- B722 특유의 우측 하단 브레드크럼 -->
       <div class="text-xs font-sans tracking-wide text-neutral-400 flex items-center gap-2">
-        <a href="index.html" class="hover:text-white transition-colors">HOME</a>
-        <span class="text-neutral-600">·</span>
-        <span>About Us</span>
-        <span class="text-neutral-600">·</span>
-        <span id="current-breadcrumb" class="text-white font-semibold">존재 이유 & 포지셔닝</span>
+        <a href="index.html" class="hover:text-white transition-colors">HOME</a><span class="text-neutral-600">·</span><span>About Us</span><span class="text-neutral-600">·</span>
+        <span id="current-breadcrumb" class="text-white font-semibold">REASON TO EXIST</span>
       </div>
     </div>
   </section>
 
-
-  <!-- =================================================================
-       3. B722 스타일 LNB 서브메뉴 탭 바 (화이트 바 & 언더라인)
-  ================================================================== -->
+  <!-- LNB -->
   <nav class="bg-white border-b border-neutral-200 sticky top-20 z-40 shadow-sm">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex items-center gap-10 overflow-x-auto text-sm font-medium whitespace-nowrap scrollbar-none py-4">
-        <button class="lnb-tab active" data-target="mission">존재 이유 & 포지셔닝</button>
-        <button class="lnb-tab" data-target="principles">VCP 6대 원칙</button>
-        <button class="lnb-tab" data-target="team">핵심 실행 라인업</button>
+        <button class="lnb-tab active" data-target="reason">REASON TO EXIST</button>
+        <button class="lnb-tab" data-target="identity">CORPORATE IDENTITY</button>
+        <button class="lnb-tab" data-target="team">EXECUTION TEAM</button>
       </div>
     </div>
   </nav>
 
-
-  <!-- =================================================================
-       4. 단일 뷰 콘텐츠 영역 (Tab Panes)
-  ================================================================== -->
+  <!-- Content -->
   <main class="flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
 
-    <!-- [Tab 1: 존재 이유 & 포지셔닝] -->
-    <section id="pane-mission" class="tab-pane">
+    <!-- [Tab 1: REASON TO EXIST] -->
+    <section id="pane-reason" class="tab-pane">
       <div class="mb-14 text-center md:text-left">
-        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
-          Reason to Exist
-        </h2>
-        <p class="text-sm md:text-base text-neutral-500 font-light">
-          기술기업을 상장 가능한 기업으로 전환하는 발행사 중심 실행 파트너
-        </p>
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">Reason to Exist</h2>
+        <p class="text-sm md:text-base text-neutral-500 font-light">기술기업을 상장 가능한 기업으로 전환하는 발행사 중심 실행 파트너</p>
       </div>
 
-      <!-- Why / Who / How Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-xs font-oswald text-vcp-red font-bold uppercase mb-2">01. Why</div>
-            <h3 class="text-xl font-bold text-neutral-900 mb-4">존재 이유</h3>
+            <h3 class="text-xl font-bold text-neutral-900 mb-4 font-oswald">REASON TO EXIST</h3>
             <p class="text-sm text-neutral-600 leading-relaxed font-light break-keep">
               기술의 잠재가치를 기업가치와 성장자본으로 연결합니다. 기술 경쟁력이 자본시장 진입과 온전한 Valuation으로 이어지도록 직접 지원합니다.
             </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-100 text-xs text-neutral-400">
-            기술 잠재력 → 자본시장 가치 실현
-          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-100 text-xs text-neutral-400">기술 잠재력 → 자본시장 가치 실현</div>
         </div>
 
         <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
@@ -268,9 +119,7 @@
               기술은 준비됐지만 사내 IPO 실행조직이 부족한 기업, 차별화된 기술과 사업화 기반을 보유한 비상장 혁신 기술기업이 핵심 고객입니다.
             </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-100 text-xs text-neutral-400">
-            실행 조직 부재 기술기업 밀착 파트너
-          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-100 text-xs text-neutral-400">실행 조직 부재 기술기업 밀착 파트너</div>
         </div>
 
         <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm flex flex-col justify-between">
@@ -281,294 +130,204 @@
               외부 조언에 머무르지 않고 발행사 내부 IPO TFT로 직접 결합합니다. 진단-전환-심사 대응까지 변화를 현장에서 직접 주도합니다.
             </p>
           </div>
-          <div class="mt-8 pt-4 border-t border-neutral-100 text-xs text-neutral-400">
-            발행사 내부 Embedded Action
-          </div>
+          <div class="mt-8 pt-4 border-t border-neutral-100 text-xs text-neutral-400">발행사 내부 Embedded Action</div>
         </div>
-      </div>
-
-      <!-- Positioning Statement -->
-      <div class="bg-white p-10 rounded-2xl border border-neutral-200 shadow-sm">
-        <h4 class="text-xs font-oswald tracking-widest text-vcp-red uppercase font-semibold mb-2">Market Positioning</h4>
-        <h3 class="text-2xl font-bold text-neutral-900 mb-4">Technology IPO Execution Partner</h3>
-        <p class="text-sm md:text-base text-neutral-600 leading-relaxed font-light break-keep">
-          기술평가 통과를 위한 문서 대행에서 멈추지 않고, 지정회계감사 내부통제, 재무정보 신뢰성, 한국거래소 심사까지 기술·사업·재무·조직을 상장 가능한 상태로 변화시킵니다.
-        </p>
       </div>
     </section>
 
-
-    <!-- [Tab 2: VCP 6대 원칙] -->
-    <section id="pane-principles" class="tab-pane hidden">
+    <!-- [Tab 2: CORPORATE IDENTITY] -->
+    <section id="pane-identity" class="tab-pane hidden">
       <div class="mb-14 text-center md:text-left">
-        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
-          Our Principles
-        </h2>
-        <p class="text-sm md:text-base text-neutral-500 font-light">
-          각 전문기관의 역량을 발행사 관점에서 통합하고, 완주까지 책임을 다하는 6대 실행 원칙
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">Corporate Identity</h2>
+        <p class="text-sm md:text-base text-neutral-500 font-light">세 가지 역량이 겹치는 지점, VCP의 고유한 Identity 입니다.</p>
+      </div>
+
+      <div class="bg-white p-10 md:p-14 rounded-3xl border border-neutral-200 shadow-lg text-center mb-10 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-vcp-red/5 rounded-full blur-3xl"></div>
+        <h3 class="text-xl md:text-2xl font-bold text-neutral-900 mb-4 relative z-10">Investment <span class="text-neutral-300 mx-2">·</span> Consulting <span class="text-neutral-300 mx-2">·</span> Execution</h3>
+        <p class="text-sm md:text-base text-neutral-600 font-light leading-relaxed max-w-3xl mx-auto break-keep relative z-10">
+          투자 관점, 전문 자문, 현장 실행이 동시에 작동하는 IPO Value-up 통합 실행역량이 VCP의 본질입니다. <br class="hidden md:block"/>VCP는 자본의 관점으로 판단하고, 전략을 설계하며, 기업 내부에서 변화를 직접 실행합니다.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center font-oswald font-bold text-sm mb-4">01</div>
-          <h4 class="text-lg font-bold text-neutral-900 mb-2">단순 문서 대행 지양</h4>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
-            단순히 기술사업계획서만 대행 작성하지 않으며, 기업의 실질적인 준비도를 상장 규격으로 전환합니다.
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-vcp-navy p-8 rounded-2xl text-white shadow-xl flex flex-col relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-vcp-red/20 rounded-bl-full transition-transform group-hover:scale-110"></div>
+          <div class="text-vcp-red font-oswald text-4xl font-bold mb-2">I</div>
+          <h4 class="text-xl font-oswald tracking-widest uppercase mb-4">Capital Insight</h4>
+          <h5 class="text-sm font-bold text-neutral-300 mb-2 border-b border-white/20 pb-2">Investment (투자)</h5>
+          <p class="text-xs text-neutral-400 leading-relaxed font-light mt-2 break-keep">
+            자본시장과 투자자의 관점에서 기술기업의 잠재가치, 성장성, IPO 가능성 및 Valuation을 객관적으로 진단합니다.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center font-oswald font-bold text-sm mb-4">02</div>
-          <h4 class="text-lg font-bold text-neutral-900 mb-2">전문 영역 존중</h4>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
-            특허법인, 회계법인의 전문적 고유 권한과 감정 업무를 침해하지 않고 발행사 관점에서 유기적으로 통합합니다.
+        <div class="bg-vcp-navy p-8 rounded-2xl text-white shadow-xl flex flex-col relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-vcp-red/20 rounded-bl-full transition-transform group-hover:scale-110"></div>
+          <div class="text-vcp-red font-oswald text-4xl font-bold mb-2">C</div>
+          <h4 class="text-xl font-oswald tracking-widest uppercase mb-4">Strategic Design</h4>
+          <h5 class="text-sm font-bold text-neutral-300 mb-2 border-b border-white/20 pb-2">Consulting (자문)</h5>
+          <p class="text-xs text-neutral-400 leading-relaxed font-light mt-2 break-keep">
+            진단 결과를 바탕으로 기술·사업·재무·IPO 과제를 통합하고, 기업가치 제고를 위한 맞춤형 Value-up 전략과 실행 로드맵을 설계합니다.
           </p>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center font-oswald font-bold text-sm mb-4">03</div>
-          <h4 class="text-lg font-bold text-neutral-900 mb-2">주관사 상장주선 존중</h4>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
-            주관 증권사의 공식적인 상장주선 업무를 대체하지 않으며, 발행사 내부 실행 Gap을 메우는 데 집중합니다.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center font-oswald font-bold text-sm mb-4">04</div>
-          <h4 class="text-lg font-bold text-neutral-900 mb-2">상장 가능성 과장 배제</h4>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
-            상장 가능성을 근거 없이 과장하여 수주만을 위한 무리한 자문계약을 맺지 않습니다.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center font-oswald font-bold text-sm mb-4">05</div>
-          <h4 class="text-lg font-bold text-neutral-900 mb-2">실행 방치 없는 결합</h4>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
-            자본만 공급한 뒤 기업의 실무 실행을 방치하지 않으며 현장에서 모든 과제를 경영진과 함께 풉니다.
-          </p>
-        </div>
-
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center font-oswald font-bold text-sm mb-4">06</div>
-          <h4 class="text-lg font-bold text-neutral-900 mb-2">예심 완주까지 책임</h4>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed font-light break-keep">
-            기술평가 통과만을 최종 성과로 삼지 않고 지정회계감사와 거래소 상장예비심사 완주까지 함께합니다.
+        <div class="bg-vcp-navy p-8 rounded-2xl text-white shadow-xl flex flex-col relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-vcp-red/20 rounded-bl-full transition-transform group-hover:scale-110"></div>
+          <div class="text-vcp-red font-oswald text-4xl font-bold mb-2">E</div>
+          <h4 class="text-xl font-oswald tracking-widest uppercase mb-4">Embedded Action</h4>
+          <h5 class="text-sm font-bold text-neutral-300 mb-2 border-b border-white/20 pb-2">Execution (실행)</h5>
+          <p class="text-xs text-neutral-400 leading-relaxed font-light mt-2 break-keep">
+            전략 제시에 그치지 않고 기업 내부에 밀착해 KPI·일정·증빙을 관리하며, 기술평가·지정감사·거래소 심사 대응까지 실행을 함께 관리합니다.
           </p>
         </div>
       </div>
     </section>
 
-
-    <!-- [Tab 3: 핵심 실행 라인업] -->
+    <!-- [Tab 3: EXECUTION TEAM] -->
     <section id="pane-team" class="tab-pane hidden">
       <div class="mb-14 text-center md:text-left">
-        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">
-          Execution Team
-        </h2>
-        <p class="text-sm md:text-base text-neutral-500 font-light">
-          두 차례의 기술특례상장 발행사 내부 실무 경험을 직접 완주한 핵심 라인업
+        <h2 class="text-3xl md:text-5xl font-oswald font-bold tracking-tight uppercase text-neutral-900 mb-3">Execution Team</h2>
+        <p class="text-sm md:text-base text-neutral-600 font-medium">핵심 실행 라인업</p>
+        <p class="text-sm text-neutral-500 font-light mt-2 max-w-3xl">
+          두 차례 기술특례상장 발행사 내부 실무 경험을 바탕으로, 사업·전략, 회계·재무·지정감사, 기술평가, 상장 문서화를 하나의 실행체계로 연결합니다.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
         <!-- 박훈 -->
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
-            <div>
-              <span class="text-xs font-oswald text-vcp-red uppercase font-bold">Representative Partner</span>
-              <h3 class="text-2xl font-bold text-neutral-900">박 훈</h3>
-            </div>
-            <span class="text-xs bg-neutral-100 text-neutral-600 px-3 py-1 rounded-full font-medium">사업·전략 총괄</span>
+        <div class="bg-white border border-neutral-200 shadow-sm rounded-xl overflow-hidden flex flex-col">
+          <div class="bg-[#EAF5F8] py-5 px-6 text-center border-b border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900">박 훈</h3>
+            <p class="text-[#2B6CB0] font-semibold text-sm mt-1">사업·전략 담당</p>
           </div>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed mb-6 font-light break-keep">
-            사업모델·성장전략·파트너십 총괄. 창업·경영·M&A 실무경험을 기반으로 투자대상 기업의 사업구조와 성장 스토리를 정립하고 VCP 협업 대외 업무를 담당합니다.
-          </p>
-          <div class="bg-neutral-50 p-4 rounded-xl text-xs text-neutral-500 space-y-1.5 font-light">
-            <div>• KAIST 경영대학원 MBA</div>
-            <div>• 시드니大 경제학/국제경영학 학사</div>
-            <div>• (주)부루구루 COO·공동창업</div>
-            <div>• (주)오리지널비어컴퍼니 COO·공동창업</div>
-            <div class="text-neutral-900 font-medium">• (현) 주식회사 VCP 대표이사·공동창업</div>
+          <div class="p-6 md:p-8 flex-grow">
+            <div class="text-[#2B6CB0] text-sm font-medium text-center mb-3">사업모델·성장전략·파트너십 총괄</div>
+            <p class="text-sm text-neutral-700 font-bold text-center mb-6 break-keep leading-relaxed">
+              창업·경영 실무경험을 기반으로 투자대상 기업의 사업구조와 성장스토리를 정립하고, VCP 협업의 대외 업무를 담당
+            </p>
+            <ul class="space-y-2 text-[13px] text-neutral-600 font-light">
+              <li class="flex gap-2"><span>•</span> 시드니대 경제학/국제경영학 학사</li>
+              <li class="flex gap-2"><span>•</span> KAIST 경영대학원 MBA(석사)</li>
+              <li class="flex gap-2"><span>•</span> (주)부루구루, (주)오리지널비어컴퍼니 공동창업</li>
+              <li class="flex gap-2"><span>•</span> 사업·조직 운영 총괄 COO</li>
+              <li class="flex gap-2"><span>•</span> 창업-성장-EXIT 전 과정 기획·실무 수행</li>
+            </ul>
           </div>
         </div>
 
         <!-- 임기완 -->
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
-            <div>
-              <span class="text-xs font-oswald text-vcp-red uppercase font-bold">Partner / CPA</span>
-              <h3 class="text-2xl font-bold text-neutral-900">임기완</h3>
-            </div>
-            <span class="text-xs bg-neutral-100 text-neutral-600 px-3 py-1 rounded-full font-medium">회계·재무 담당</span>
+        <div class="bg-white border border-neutral-200 shadow-sm rounded-xl overflow-hidden flex flex-col">
+          <div class="bg-[#EAF5F8] py-5 px-6 text-center border-b border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900">임기완</h3>
+            <p class="text-[#2B6CB0] font-semibold text-sm mt-1">회계·재무 담당</p>
           </div>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed mb-6 font-light break-keep">
-            지정회계감사·회계정책/결산체계·내부통제·재무 및 Valuation 거래소 대응. 두 차례 기술특례상장 발행사 내부 실무경험을 바탕으로 지정감사 사전 진단부터 거래소 대응까지 총괄합니다.
-          </p>
-          <div class="bg-neutral-50 p-4 rounded-xl text-xs text-neutral-500 space-y-1.5 font-light">
-            <div>• 한양대 경영학 학사 / 공인회계사(KICPA)</div>
-            <div>• 한영회계법인 회계사 / 진일회계법인 파트너 회계사</div>
-            <div>• 마이크로디지탈 CFO (기술특례 상장 수행)</div>
-            <div>• 아이씨에이치 CFO (기술특례 상장 수행)</div>
-            <div class="text-neutral-900 font-medium">• (현) 주식회사 VCP 파트너</div>
+          <div class="p-6 md:p-8 flex-grow">
+            <div class="text-[#2B6CB0] text-sm font-medium text-center mb-3 break-keep leading-snug">지정회계감사·회계정책/결산체계·내부통제·재무 및 Valuation·거래소 대응</div>
+            <p class="text-sm text-neutral-700 font-bold text-center mb-6 break-keep leading-relaxed">
+              지정감사 사전진단부터 감사증빙·내부통제 정비, 감사인·거래소 대응까지 총괄
+            </p>
+            <ul class="space-y-2 text-[13px] text-neutral-600 font-light">
+              <li class="flex gap-2"><span>•</span> 한양대 경영학 학사</li>
+              <li class="flex gap-2"><span>•</span> 한영회계법인 회계사</li>
+              <li class="flex gap-2"><span>•</span> 진일회계법인 파트너 회계사</li>
+              <li class="flex gap-2"><span>•</span> 코스닥 상장사 CFO</li>
+              <li class="flex gap-2"><span>•</span> 상장 추진기업에서 지정감사·거래소 심사 대응 총괄</li>
+            </ul>
           </div>
         </div>
 
         <!-- 김정률 -->
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
-            <div>
-              <span class="text-xs font-oswald text-vcp-red uppercase font-bold">Partner / Ph.D</span>
-              <h3 class="text-2xl font-bold text-neutral-900">김정률</h3>
-            </div>
-            <span class="text-xs bg-neutral-100 text-neutral-600 px-3 py-1 rounded-full font-medium">기술평가 전략 담당</span>
+        <div class="bg-white border border-neutral-200 shadow-sm rounded-xl overflow-hidden flex flex-col">
+          <div class="bg-[#EAF5F8] py-5 px-6 text-center border-b border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900">김정률</h3>
+            <p class="text-[#2B6CB0] font-semibold text-sm mt-1">기술평가 담당</p>
           </div>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed mb-6 font-light break-keep">
-            기술평가 전략 수립 주도. 기업의 기술력·시장성·사업화 가능성을 체계화해 기술평가 관문을 준비하며, R&D·특허·기술사업계획서 축을 통합 관리합니다.
-          </p>
-          <div class="bg-neutral-50 p-4 rounded-xl text-xs text-neutral-500 space-y-1.5 font-light">
-            <div>• 포항공대(POSTECH) 유기화학 박사</div>
-            <div>• LG이노텍 팀장 / SK텔레콤 팀장</div>
-            <div>• 마이크로디지탈 상무 (기술특례 상장 수행)</div>
-            <div>• 아이씨에이치 부사장 (기술특례 상장 수행)</div>
-            <div class="text-neutral-900 font-medium">• (현) 주식회사 VCP 파트너</div>
+          <div class="p-6 md:p-8 flex-grow">
+            <div class="text-[#2B6CB0] text-sm font-medium text-center mb-3">기술평가 전략 수립 주도</div>
+            <p class="text-sm text-neutral-700 font-bold text-center mb-6 break-keep leading-relaxed">
+              기업의 기술력·시장성·사업화 가능성을 체계화해 기술평가 관문을 준비하며, R&D·특허·기술사업계획서 축을 통합 관리
+            </p>
+            <ul class="space-y-2 text-[13px] text-neutral-600 font-light">
+              <li class="flex gap-2"><span>•</span> 포항공대 유기화학 박사</li>
+              <li class="flex gap-2"><span>•</span> SK 텔레콤·LG 이노텍 R&D 팀장</li>
+              <li class="flex gap-2"><span>•</span> 코스닥 상장사 기술 담당 부사장</li>
+              <li class="flex gap-2"><span>•</span> 상장 추진기업에서 기술분야(기술평가 등) 대응 총괄</li>
+            </ul>
           </div>
         </div>
 
         <!-- 최우식 -->
-        <div class="bg-white p-8 rounded-2xl border border-neutral-200 shadow-sm">
-          <div class="flex items-center justify-between pb-4 border-b border-neutral-100 mb-6">
-            <div>
-              <span class="text-xs font-oswald text-vcp-red uppercase font-bold">Partner</span>
-              <h3 class="text-2xl font-bold text-neutral-900">최우식</h3>
-            </div>
-            <span class="text-xs bg-neutral-100 text-neutral-600 px-3 py-1 rounded-full font-medium">경영기획·문서화</span>
+        <div class="bg-white border border-neutral-200 shadow-sm rounded-xl overflow-hidden flex flex-col">
+          <div class="bg-[#EAF5F8] py-5 px-6 text-center border-b border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900">최우식</h3>
+            <p class="text-[#2B6CB0] font-semibold text-sm mt-1">기술평가 담당</p>
           </div>
-          <p class="text-xs md:text-sm text-neutral-600 leading-relaxed mb-6 font-light break-keep">
-            기술사업계획서 상장 스토리라인·경영기획 실행. 기술의 상장 논리 서술과 심사 대응 문서화를 담당하며, 12~24개월 Value-up 프로그램의 실무를 지원합니다.
-          </p>
-          <div class="bg-neutral-50 p-4 rounded-xl text-xs text-neutral-500 space-y-1.5 font-light">
-            <div>• 한양대 신문방송 / 영어영문학 학사</div>
-            <div>• 아시아나항공 서비스기획 / 천지인커뮤니케이션 실장</div>
-            <div>• 마이크로디지탈 차장 (상장 실무 지원)</div>
-            <div>• 아이씨에이치 경영기획부장 (상장 실무 지원)</div>
-            <div class="text-neutral-900 font-medium">• (현) 주식회사 VCP 파트너</div>
+          <div class="p-6 md:p-8 flex-grow">
+            <div class="text-[#2B6CB0] text-sm font-medium text-center mb-3">기술사업계획서·상장 스토리라인·경영기획 실행</div>
+            <p class="text-sm text-neutral-700 font-bold text-center mb-6 break-keep leading-relaxed">
+              기술의 상장논리 서술과 심사대응 문서화를 담당하며, 12~24 개월 Value-up 프로그램의 KPI·일정·책임자 관리를 실무 지원
+            </p>
+            <ul class="space-y-2 text-[13px] text-neutral-600 font-light">
+              <li class="flex gap-2"><span>•</span> 한양대 영어영문/신문방송학 학사</li>
+              <li class="flex gap-2"><span>•</span> 아시아나항공 서비스기획 실무 담당</li>
+              <li class="flex gap-2"><span>•</span> 커뮤니케이션 대행사 임원</li>
+              <li class="flex gap-2"><span>•</span> 상장 추진기업에서 기술평가 준비·대응 실무 담당</li>
+            </ul>
           </div>
+        </div>
+      </div>
+
+      <!-- VCP 의 역할 정의 -->
+      <div class="bg-[#DDF3F8] p-8 md:p-10 rounded-2xl border border-[#BDE3ED] shadow-sm">
+        <h4 class="text-lg font-bold text-neutral-900 mb-3">VCP 의 역할 정의</h4>
+        <p class="text-sm text-neutral-700 leading-relaxed font-medium break-keep mb-6">
+          보고서를 제출하고 종료하는 자문사가 아니라, 투자기업 내부의 기술·사업·회계·재무·IPO 과제를 끝까지 관리하는 실행형 Value-up Partner 입니다. 기업의 전략·조직·회계·심사대응이 하나의 워크플로우로 통합됩니다.
+        </p>
+        <div class="text-sm font-bold text-neutral-900 italic border-t border-[#BDE3ED] pt-5 break-keep">
+          "기술을 설명하는 자문과, 기술·재무·내부통제를 하나의 상장논리로 완성하는 실행팀은 완전히 다른 조직이다."
         </div>
       </div>
     </section>
 
   </main>
 
-
-  <!-- =================================================================
-       5. Footer
-  ================================================================== -->
   <footer class="bg-black text-neutral-500 text-xs py-14 border-t border-white/5 mt-auto">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 border-b border-white/10 gap-6">
         <img src="./img/logo1.png" alt="VCP Logo" class="h-8 w-auto brightness-0 invert opacity-70" onerror="this.onerror=null; this.src='./img/logo3.png';" />
         <div class="text-neutral-400 text-xs flex gap-6">
-          <a href="about.html" class="text-white font-medium">About Us</a>
-          <span>·</span>
-          <a href="solutions.html" class="hover:text-white">Solutions</a>
-          <span>·</span>
+          <a href="about.html" class="text-white font-medium">About Us</a><span>·</span>
+          <a href="solutions.html" class="hover:text-white">Solutions</a><span>·</span>
           <a href="track-record.html" class="hover:text-white">Track Record</a>
         </div>
       </div>
-
       <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div>
-          <p class="text-neutral-400 font-medium text-sm mb-1">주식회사 브이씨피 (Value Creation Partners)</p>
-          <p>서울특별시 강남구 강남대로 464, 3층 316호 | 대표이사: 박 훈</p>
-        </div>
-        <p class="text-neutral-500 font-oswald text-[11px]">
-          © 2026 VALUE CREATION PARTNERS. ALL RIGHTS RESERVED.
-        </p>
+        <div><p class="text-neutral-400 font-medium text-sm mb-1">주식회사 브이씨피 (Value Creation Partners)</p><p>서울특별시 강남구 강남대로 464, 3층 316호 | 대표이사: 박 훈</p></div>
+        <p class="text-neutral-500 font-oswald text-[11px]">© 2026 VALUE CREATION PARTNERS. ALL RIGHTS RESERVED.</p>
       </div>
     </div>
   </footer>
 
-
-  <!-- =================================================================
-       6. LNB 탭 스위칭 & URL 해시 동기화 로직
-  ================================================================== -->
   <script>
-    // 탭 요소 및 브레드크럼 매핑
     const tabs = document.querySelectorAll('.lnb-tab');
     const panes = document.querySelectorAll('.tab-pane');
     const breadcrumb = document.getElementById('current-breadcrumb');
-
-    const tabNames = {
-      'mission': '존재 이유 & 포지셔닝',
-      'principles': 'VCP 6대 원칙',
-      'team': '핵심 실행 라인업'
-    };
+    const tabNames = { 'reason': 'REASON TO EXIST', 'identity': 'CORPORATE IDENTITY', 'team': 'EXECUTION TEAM' };
 
     function activateTab(tabId) {
-      if (!tabNames[tabId]) tabId = 'mission';
-
-      // 1. LNB 버튼 활성화/비활성화
-      tabs.forEach(tab => {
-        if (tab.getAttribute('data-target') === tabId) {
-          tab.classList.add('active');
-        } else {
-          tab.classList.remove('active');
-        }
-      });
-
-      // 2. 패널 전환 (단일 뷰로 노출)
-      panes.forEach(pane => {
-        if (pane.id === `pane-${tabId}`) {
-          pane.classList.remove('hidden');
-        } else {
-          pane.classList.add('hidden');
-        }
-      });
-
-      // 3. 상단 배너 브레드크럼 텍스트 변경
-      if (breadcrumb) {
-        breadcrumb.textContent = tabNames[tabId];
-      }
+      if (!tabNames[tabId]) tabId = 'reason';
+      tabs.forEach(tab => tab.classList.toggle('active', tab.getAttribute('data-target') === tabId));
+      panes.forEach(pane => pane.classList.toggle('hidden', pane.id !== `pane-${tabId}`));
+      if (breadcrumb) breadcrumb.textContent = tabNames[tabId];
     }
+    tabs.forEach(tab => tab.addEventListener('click', () => { const target = tab.getAttribute('data-target'); history.pushState(null, null, `#${target}`); activateTab(target); }));
+    window.addEventListener('popstate', () => activateTab(window.location.hash.replace('#', '')));
+    window.addEventListener('DOMContentLoaded', () => activateTab(window.location.hash.replace('#', '')));
 
-    // 탭 클릭 이벤트
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.getAttribute('data-target');
-        history.pushState(null, null, `#${target}`);
-        activateTab(target);
-      });
-    });
-
-    // 브라우저 뒤로가기/URL 직접 접근(#principles 등) 처리
-    window.addEventListener('popstate', () => {
-      const hash = window.location.hash.replace('#', '');
-      activateTab(hash);
-    });
-
-    // 초기 로딩 시 URL 해시 감지
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.replace('#', '');
-      activateTab(hash);
-    });
-
-    // 모바일 드로어 메뉴
-    const toggleBtn = document.getElementById('mobile-toggle');
-    const closeBtn = document.getElementById('mobile-close');
-    const drawer = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
+    const toggleBtn = document.getElementById('mobile-toggle'), closeBtn = document.getElementById('mobile-close'), drawer = document.getElementById('mobile-menu');
     toggleBtn?.addEventListener('click', () => drawer.classList.add('open'));
     closeBtn?.addEventListener('click', () => drawer.classList.remove('open'));
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        drawer.classList.remove('open');
-        const hash = link.getAttribute('href').replace('#', '');
-        activateTab(hash);
-      });
-    });
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', (e) => { drawer.classList.remove('open'); activateTab(link.getAttribute('href').split('#')[1]); }));
   </script>
 </body>
 </html>
