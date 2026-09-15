@@ -43,6 +43,8 @@
 
   <!-- Main Content -->
   <main class="flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
+    
+    <!-- 1. 상단 2열 그리드 (좌측 정보 5칸 : 우측 폼 7칸 = 총 12칸) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
       <!-- Contact Info Box (5 cols) -->
@@ -77,7 +79,6 @@
           <p class="text-xs text-neutral-500 mb-8 font-light">기업 기본 정보와 보유 기술을 남겨주시면 면밀히 검토 후 연락드립니다.</p>
 
           <form id="contact-form" class="space-y-5">
-            <!-- 폼 메일링 설정 파라미터 -->
             <input type="hidden" name="_subject" value="[VCP 공식 웹사이트] 새로운 상장 상담 문의가 접수되었습니다." />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
@@ -116,92 +117,104 @@
         </div>
       </div>
 
-<!-- =================================================================
-           오시는 길 & 네이버 지도 대형 카드 (Full Width)
-      ================================================================== -->
-      <div class="mt-12 bg-white p-8 md:p-10 rounded-2xl border border-neutral-200 shadow-sm">
-        <!-- 카드 상단 헤더 & 지도 바로가기 버튼 -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-neutral-100 gap-4 mb-6">
-          <div>
-            <div class="text-xs font-oswald text-vcp-red font-bold uppercase tracking-wider mb-1">Location & Directions</div>
-            <h3 class="text-2xl font-bold text-neutral-900">오시는 길</h3>
-            <p class="text-sm text-neutral-600 mt-1 font-light">
-              서울특별시 강남구 강남대로 464, 3층 316호 (역삼동)
-            </p>
-          </div>
+    </div> <!-- ★★★ 상단 12칸 그리드 종료 ★★★ -->
 
-          <!-- 지도 플랫폼 바로가기 버튼 그룹 -->
-          <div class="flex items-center gap-3">
-            <!-- 네이버 지도 버튼 -->
-            <a 
-              href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EA%B0%95%EB%82%A8%EB%8C%80%EB%A1%9C%20464" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#03C75A] hover:bg-[#02b350] text-white text-xs font-semibold transition-colors shadow-sm"
-            >
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/>
-              </svg>
-              네이버 지도로 보기
-            </a>
-
-            <!-- 카카오맵 버튼 -->
-            <a 
-              href="https://map.kakao.com/link/search/서울특별시 강남구 강남대로 464" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FEE500] hover:bg-[#ebd300] text-[#191919] text-xs font-semibold transition-colors shadow-sm"
-            >
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M12 3c-5.523 0-10 3.582-10 8 0 2.87 1.868 5.397 4.708 6.784l-1.196 4.387c-.105.385.328.692.658.468l5.228-3.504c.198.016.398.025.602.025 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
-              </svg>
-              카카오맵으로 보기
-            </a>
+    <!-- 2. 하단 독립 가로 100% 영역: 오시는 길 & 네이버 지도 Dynamic SDK (Level 4) -->
+    <div class="mt-12 bg-white rounded-3xl border border-neutral-200/80 shadow-lg overflow-hidden">
+      
+      <!-- 상단 헤더 & 바로가기 버튼 -->
+      <div class="p-8 md:p-10 pb-6 flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-100 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-vcp-red text-[11px] font-oswald uppercase tracking-wider font-semibold mb-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-vcp-red animate-pulse"></span>
+            Headquarters Location
           </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 tracking-tight">오시는 길</h3>
+          <p class="text-xs md:text-sm text-neutral-500 mt-1 font-light">
+            서울특별시 강남구 강남대로 464, 3층 316호 (역삼동)
+          </p>
         </div>
 
-        <!-- 지도 뷰 영역 -->
-        <div class="w-full h-80 md:h-96 rounded-xl overflow-hidden border border-neutral-200 relative mb-8">
-          <iframe 
-            src="https://maps.google.com/maps?q=서울특별시%20강남구%20강남대로%20464&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-            class="w-full h-full border-0" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-            title="VCP 본사 위치"
-          ></iframe>
+        <div class="flex items-center gap-2.5">
+          <a 
+            href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EA%B0%95%EB%82%A8%EB%8C%80%EB%A1%9C%20464" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#03C75A] hover:bg-[#02b150] text-white text-xs font-semibold transition-all shadow-sm active:scale-95"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z"/></svg>
+            네이버 길찾기
+          </a>
+          <a 
+            href="https://map.kakao.com/link/search/서울특별시 강남구 강남대로 464" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FEE500] hover:bg-[#ebd200] text-[#191919] text-xs font-semibold transition-all shadow-sm active:scale-95"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-5.523 0-10 3.582-10 8 0 2.87 1.868 5.397 4.708 6.784l-1.196 4.387c-.105.385.328.692.658.468l5.228-3.504c.198.016.398.025.602.025 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/></svg>
+            카카오맵
+          </a>
         </div>
+      </div>
 
-        <!-- 대중교통 및 주차 안내 그리드 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-          <div class="p-5 rounded-xl bg-neutral-50 border border-neutral-100">
-            <div class="text-xs font-oswald text-vcp-red font-bold uppercase mb-1">Subway</div>
-            <h4 class="text-sm font-bold text-neutral-900 mb-2">지하철 이용 시</h4>
-            <p class="text-xs text-neutral-600 leading-relaxed font-light">
-              <strong class="font-medium text-neutral-800">9호선 · 신분당선 신논현역</strong> 6번 출구 (도보 3분)<br />
-              <strong class="font-medium text-neutral-800">2호선 · 신분당선 강남역</strong> 10번 출구 (도보 8분)
-            </p>
-          </div>
+      <!-- 지도 캔버스 영역 (Scroll-Lock & 플로팅 인포카드 내장) -->
+      <div class="relative w-full h-[420px] md:h-[480px] bg-neutral-100 overflow-hidden group">
+        <div id="vcp-naver-map" class="w-full h-full"></div>
 
-          <div class="p-5 rounded-xl bg-neutral-50 border border-neutral-100">
-            <div class="text-xs font-oswald text-vcp-red font-bold uppercase mb-1">Bus</div>
-            <h4 class="text-sm font-bold text-neutral-900 mb-2">버스 이용 시</h4>
-            <p class="text-xs text-neutral-600 leading-relaxed font-light">
-              <strong class="font-medium text-neutral-800">신논현역·구보교보타워사거리</strong> 정류장 하차<br />
-              간선/지선/광역 버스 다수 운행
+        <div class="absolute top-4 left-4 z-10 hidden sm:block">
+          <div class="p-4 rounded-2xl bg-vcp-navy/90 backdrop-blur-md border border-white/15 text-white shadow-2xl max-w-xs">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="w-2 h-2 rounded-full bg-vcp-red"></span>
+              <span class="font-oswald text-xs tracking-wider uppercase text-neutral-300">Technology IPO Partner</span>
+            </div>
+            <h4 class="font-bold text-sm text-white mb-1">주식회사 브이씨피 (VCP)</h4>
+            <p class="text-[11px] text-neutral-300 leading-relaxed font-light mb-2">
+              서울특별시 강남구 강남대로 464, 3층 316호
             </p>
-          </div>
-
-          <div class="p-5 rounded-xl bg-neutral-50 border border-neutral-100">
-            <div class="text-xs font-oswald text-vcp-red font-bold uppercase mb-1">Parking</div>
-            <h4 class="text-sm font-bold text-neutral-900 mb-2">주차 안내</h4>
-            <p class="text-xs text-neutral-600 leading-relaxed font-light">
-              건물 내 유료 주차 가능<br />
-              (원활한 주차를 위해 방문 전 사전 문의를 권장합니다.)
-            </p>
+            <div class="inline-block px-2 py-0.5 rounded bg-white/10 text-[10px] text-rose-200 font-medium">
+              신논현역 6번 출구 도보 3분
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- 하단 교통 & 주차 안내 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-100 bg-neutral-50/50">
+        <div class="p-8">
+          <div class="w-8 h-8 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center mb-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h4 class="text-sm font-bold text-neutral-900 mb-1.5">지하철 이용 시</h4>
+          <p class="text-xs text-neutral-600 leading-relaxed font-light">
+            <strong class="font-medium text-neutral-800">9호선 · 신분당선 신논현역</strong> 6번 출구 직진 200m (도보 3분)<br />
+            <strong class="font-medium text-neutral-800">2호선 · 신분당선 강남역</strong> 10번 출구 직진 500m (도보 8분)
+          </p>
+        </div>
+
+        <div class="p-8">
+          <div class="w-8 h-8 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center mb-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+          </div>
+          <h4 class="text-sm font-bold text-neutral-900 mb-1.5">버스 이용 시</h4>
+          <p class="text-xs text-neutral-600 leading-relaxed font-light">
+            <strong class="font-medium text-neutral-800">신논현역·구교보타워사거리</strong> 중앙차로 정류장 하차<br />
+            간선/지선/광역/공항버스 광역 교통망 연결
+          </p>
+        </div>
+
+        <div class="p-8">
+          <div class="w-8 h-8 rounded-xl bg-vcp-red/10 text-vcp-red flex items-center justify-center mb-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h4 class="text-sm font-bold text-neutral-900 mb-1.5">주차 안내</h4>
+          <p class="text-xs text-neutral-600 leading-relaxed font-light">
+            건물 지하 자주식 및 기계식 주차 가능<br />
+            (방문 전 담당 파트너에게 사전 문의 시 편리한 주차가 가능합니다.)
+          </p>
+        </div>
+      </div>
+
+    </div>
 
   </main>
 
