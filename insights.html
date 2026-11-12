@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights | VCP (Value Creation Partners)</title>
+  <meta name="description" content="VCP가 매달 발행하는 시장·기술 동향 리포트. 기관 기술정보 리뷰를 요약하고 국내 기술기업과 투자 관점의 시사점을 더했습니다." />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { vcp: { red: '#9E1C2E', darkred: '#7A1422', navy: '#0B111E', dark: '#060A12', card: '#131B2E', border: 'rgba(255, 255, 255, 0.08)' } }, fontFamily: { sans: ['Pretendard', 'sans-serif'], oswald: ['Oswald', 'sans-serif'] } } } }
+  </script>
+  <style>
+    #mobile-menu.open { transform: translateX(0); }
+    .series-chip { border: 1px solid #D4D4D8; border-radius: 9999px; padding: 6px 14px; font-size: 13px; color: #52525B; background: #fff; }
+    .series-chip:hover { border-color: #18181B; color: #18181B; }
+    .series-chip.active { background: #18181B; border-color: #18181B; color: #fff; }
+  </style>
+</head>
+<body class="bg-[#F8F9FA] text-neutral-800 font-sans antialiased selection:bg-vcp-red selection:text-white flex flex-col min-h-screen">
+
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-vcp-dark/95 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3"><img src="./img/logo-h.png" alt="VCP" class="h-10 md:h-12 w-auto object-contain" onerror="this.onerror=null; this.src='./img/logo3.png';" /></a>
+      <nav class="hidden lg:flex items-center gap-8 font-oswald text-sm tracking-wider uppercase">
+        <a href="about.html" class="text-neutral-300 hover:text-white">About Us</a>
+        <a href="solutions.html" class="text-neutral-300 hover:text-white">Solutions</a>
+        <a href="track-record.html" class="text-neutral-300 hover:text-white">Track Record</a>
+        <a href="insights.html" class="text-vcp-red font-semibold">Insights</a>
+        <a href="contact.html" class="px-5 py-2.5 rounded-full border border-vcp-red text-white bg-vcp-red/80 hover:bg-vcp-red text-xs font-semibold">CONTACT US</a>
+      </nav>
+      <button id="mobile-toggle" aria-label="메뉴 열기" class="lg:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </div>
+  </header>
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-80 bg-vcp-dark z-50 transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between">
+    <div>
+      <div class="flex justify-between items-center pb-6 border-b border-vcp-border">
+        <img src="./img/logo-h.png" alt="VCP Logo" class="h-7 w-auto" onerror="this.onerror=null; this.src='./img/logo3.png';" />
+        <button id="mobile-close" class="text-white p-1" aria-label="메뉴 닫기"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg></button>
+      </div>
+      <div class="py-6 space-y-6 text-sm">
+        <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">About Us</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="about.html" class="block hover:text-white">VCP 소개</a></div></div>
+        <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Solutions</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="solutions.html" class="block hover:text-white">6대 서비스 모듈 &amp; 전략</a></div></div>
+        <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Track Record</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="track-record.html" class="block hover:text-white">상장 성공 사례</a></div></div>
+        <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Insights</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="insights.html" class="block text-white">월간 시장·기술 동향</a></div></div>
+        <div><div class="font-oswald text-vcp-red uppercase tracking-wider mb-2">Contact</div><div class="pl-3 space-y-2 text-neutral-400 text-xs"><a href="contact.html" class="block hover:text-white">CONTACT US</a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="relative pt-36 pb-16 md:pt-44 md:pb-20 bg-vcp-navy overflow-hidden text-white">
+    <svg class="absolute -right-24 -bottom-24 w-[520px] h-[520px] text-white/[0.04]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" aria-hidden="true"><path d="M50 6 88 28v44L50 94 12 72V28z"/><path d="M50 30 69 41v22L50 74 31 63V41z"/></svg>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-oswald font-bold tracking-tight uppercase mb-3">Insights</h1>
+        <p class="text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-2xl break-keep">기술기업과 투자자를 위한 VCP 월간 시장·기술 동향 리포트입니다.</p>
+      </div>
+      <div class="text-xs font-sans tracking-wide text-neutral-400 flex items-center gap-2"><a href="index.html" class="hover:text-white transition-colors">HOME</a><span class="text-neutral-600">·</span><span class="text-white font-semibold">INSIGHTS</span></div>
+    </div>
+  </section>
+
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-16 md:py-20 w-full">
+    <div class="mb-10">
+      <div class="text-xs font-oswald text-vcp-red font-bold uppercase tracking-wider mb-2">VCP Monthly</div>
+      <h2 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-3 break-keep">월간 시장·기술 동향</h2>
+      <p class="text-sm text-neutral-600 leading-relaxed font-light break-keep">기관이 매달 펴내는 기술정보 리뷰를 VCP가 요약하고, 국내 기술기업의 사업화와 코스닥 기술특례상장 관점의 시사점을 더해 분야별로 공개합니다.</p>
+    </div>
+    <div id="reports">
+<!--REPORTS:START-->
+
+      <article class="report bg-white rounded-2xl border border-neutral-200 shadow-sm overflow-hidden grid grid-cols-1 md:grid-cols-12" data-series="세계 에너지 기술 동향">
+        <a href="reports/VCP-세계에너지기술동향-2026-11_v1.pdf" target="_blank" rel="noopener" class="md:col-span-5 bg-vcp-navy p-8 md:p-10 flex items-center justify-center">
+          <img src="reports/covers/energy-2026-11.png" alt="세계 에너지 기술 동향 2026년 11월호 표지" class="w-full max-w-xs shadow-2xl shadow-black/40 rounded-sm" loading="lazy" />
+        </a>
+        <div class="md:col-span-7 p-8 md:p-10 flex flex-col gap-5">
+          <div class="text-xs font-oswald text-vcp-red font-bold uppercase tracking-wider">Latest · VCP Monthly · 2026년 11월호</div>
+          <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 break-keep leading-tight">세계 에너지 기술 동향<span class="block text-base md:text-lg font-medium text-neutral-500 mt-2">2026년 11월호</span></h3>
+          <p class="text-sm md:text-[15px] text-neutral-600 leading-relaxed font-light break-keep [&_strong]:font-semibold [&_strong]:text-neutral-900"><strong>이번 호의 결론 — 에너지 전환의 수익이 발전설비를 짓는 곳에서, 계통에 안전하게 붙이고 유지하는 곳으로 옮겨 가고 있습니다.</strong> 한국에너지기술평가원(KETEP)의 『세계에너지 기술정보 Review』 2026년 11월호(91쪽)를 VCP가 요약하고, 국내 기술기업과 투자 관점의 시사점을 더했습니다.</p>
+          <dl class="grid grid-cols-2 gap-px bg-neutral-200 rounded-xl overflow-hidden border border-neutral-200"><div class="bg-white px-4 py-3"><dt class="text-[11px] text-neutral-500 break-keep">상업용 CCS 운영</dt><dd class="text-xl font-oswald font-semibold text-neutral-900 mt-0.5">113개</dd></div><div class="bg-white px-4 py-3"><dt class="text-[11px] text-neutral-500 break-keep">BESS 고장률(2018→2025)</dt><dd class="text-xl font-oswald font-semibold text-neutral-900 mt-0.5">−98%</dd></div><div class="bg-white px-4 py-3"><dt class="text-[11px] text-neutral-500 break-keep">데이터센터 접속 대기</dt><dd class="text-xl font-oswald font-semibold text-neutral-900 mt-0.5">180GW</dd></div><div class="bg-white px-4 py-3"><dt class="text-[11px] text-neutral-500 break-keep">2030 저장목표</dt><dd class="text-xl font-oswald font-semibold text-neutral-900 mt-0.5">822GW</dd></div></dl>
+          <div class="flex flex-wrap gap-3 pt-1"><a href="reports/VCP-세계에너지기술동향-2026-11_v1.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 text-sm rounded-full bg-vcp-red hover:bg-vcp-darkred text-white font-semibold transition-colors">리포트 보기 <span class="font-oswald">PDF</span></a><a href="reports/VCP-세계에너지기술동향-2026-11_v1.pdf" download class="inline-flex items-center gap-2 px-6 py-3 text-sm rounded-full border border-neutral-300 hover:border-neutral-900 text-neutral-800 font-semibold transition-colors">내려받기</a></div>
+          <p class="text-xs text-neutral-400 break-keep">원문 KETEP 세계에너지 기술정보 Review 2026년 11월호 <span class="text-neutral-300">·</span> 20쪽 <span class="text-neutral-300">·</span> 1.9MB <span class="text-neutral-300">·</span> 게시 2026.11.12</p>
+        </div>
+      </article>
+      
+<!--REPORTS:END-->
+    </div>
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-white rounded-2xl border border-neutral-200 p-8">
+      <p class="md:col-span-8 text-xs text-neutral-500 leading-relaxed break-keep">원문 수치의 권리는 각 발행기관과 1차 출처 기관에 있습니다. 리포트의 시사점은 VCP의 판단이며 투자 권유가 아닙니다.</p>
+      <div class="md:col-span-4 md:text-right"><a href="contact.html" class="inline-flex px-6 py-3 rounded-full bg-vcp-navy hover:bg-black text-white text-sm font-semibold transition-colors">리포트 관련 문의</a></div>
+    </div>
+  </main>
+
+  <footer class="bg-black text-neutral-500 text-xs py-14 border-t border-white/5 mt-auto">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 border-b border-white/10 gap-6">
+        <img src="./img/logo-h.png" alt="VCP Logo" class="h-8 w-auto opacity-80" onerror="this.onerror=null; this.src='./img/logo3.png';" />
+        <div class="text-neutral-400 text-xs flex gap-6">
+          <a href="about.html" class="hover:text-white">About Us</a><span>·</span>
+          <a href="solutions.html" class="hover:text-white">Solutions</a><span>·</span>
+          <a href="track-record.html" class="hover:text-white">Track Record</a><span>·</span>
+          <a href="insights.html" class="text-white font-medium">Insights</a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div><p class="text-neutral-400 font-medium text-sm mb-1">주식회사 브이씨피 (Value Creation Partners)</p><p>서울특별시 강남구 강남대로 464, 3층 316호 | 대표이사: 박 훈</p></div>
+        <p class="text-neutral-500 font-oswald text-[11px]">© 2026 VALUE CREATION PARTNERS. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('mobile-toggle'), closeBtn = document.getElementById('mobile-close'), drawer = document.getElementById('mobile-menu');
+    toggleBtn?.addEventListener('click', () => drawer.classList.add('open'));
+    closeBtn?.addEventListener('click', () => drawer.classList.remove('open'));
+    document.getElementById('series-filter')?.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-s]'); if (!b) return;
+      document.querySelectorAll('.series-chip').forEach((x) => x.classList.toggle('active', x === b));
+      document.querySelectorAll('.report').forEach((r) => (r.style.display = !b.dataset.s || r.dataset.series === b.dataset.s ? '' : 'none'));
+    });
+  </script>
+</body>
+</html>
