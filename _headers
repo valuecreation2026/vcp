@@ -1,0 +1,8 @@
+# VCP-PROFILE:START (VCP 대시보드가 관리 — 회사소개서 공유 링크)
+/profile/*
+  X-Robots-Tag: noindex, nofollow
+/profile/tech.pdf
+  Content-Disposition: inline; filename="VCP_Company_Profile.pdf"; filename*=UTF-8''VCP_%ED%9A%8C%EC%82%AC%EC%86%8C%EA%B0%9C%EC%84%9C.pdf
+/profile/general.pdf
+  Content-Disposition: inline; filename="VCP_Company_Profile.pdf"; filename*=UTF-8''VCP_%ED%9A%8C%EC%82%AC%EC%86%8C%EA%B0%9C%EC%84%9C.pdf
+# VCP-PROFILE:END
